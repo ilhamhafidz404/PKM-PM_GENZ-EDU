@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class SpaceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $spaces = Space::with("user")->orderBy('id', 'DESC')->paginate(5);

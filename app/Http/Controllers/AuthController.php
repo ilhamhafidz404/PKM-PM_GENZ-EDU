@@ -11,6 +11,10 @@ class AuthController extends Controller
 {
     public function login()
     {
+        if (Auth::check()) {
+            return redirect()->route('spaces.index');
+        }
+
         return view("auth.login");
     }
 
@@ -25,5 +29,11 @@ class AuthController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login');
     }
 }
