@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\s;
+use Illuminate\Support\Str;
 use App\Models\Space;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SpaceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $spaces = Space::with("user")->orderBy('id', 'DESC')->get();
@@ -20,20 +18,31 @@ class SpaceController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view("space.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'file' => 'required',
+        ]);
+
+        $file = $request->file('file');
+        $path = $file->store('spaces', 'public');
+
+        Space::create([
+            "title" => $request->title,
+            "slug" => Str::slug($request->title),
+            "description" => $request->description,
+            "file" => $path,
+            "user_id" => Auth::user()->id,
+        ]);
+
+        return redirect()->route('spaces.index');
     }
 
     /**

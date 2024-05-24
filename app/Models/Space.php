@@ -9,6 +9,8 @@ class Space extends Model
 {
     use HasFactory;
 
+    protected $fillable = ["title", "slug", "description", "file", "user_id"];
+
     public function User()
     {
         return $this->belongsTo(User::class);

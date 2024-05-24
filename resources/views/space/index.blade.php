@@ -9,8 +9,11 @@
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
-          <div class="section-header">
+          <div class="section-header d-flex justify-content-between">
             <h1>Ruang Ekspresi</h1>
+            <a href="{{route('spaces.create')}}" class="btn btn-warning">
+              Buat Ekspresi
+            </a>
           </div>
           <div class="section-body">
               @foreach ($spaces as $space)
@@ -26,7 +29,7 @@
                       <p class="m-0">{{$space->user->name}} &bullet; {{$space->created_at->diffForHumans()}}</p>
                     </div>
                     <div>
-                      <a href="" class="btn btn-warning">
+                      <a href="{{asset('storage/'.$space->file)}}" class="btn btn-warning" target="_blank">
                       <i class="fas fa-download"></i>
                     </a>
                     </div>
