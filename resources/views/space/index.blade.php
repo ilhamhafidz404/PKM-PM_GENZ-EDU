@@ -29,9 +29,14 @@
                     <p class="m-0">{{$space->user->name}} &bullet; {{$space->created_at->diffForHumans()}}</p>
                   </div>
                   <div>
+                    @if (auth()->guard("teacher")->user())
+                      <a href="{{asset('storage/'.$space->file)}}" class="btn btn-danger" target="_blank">
+                        <i class="fas fa-ban"></i>
+                      </a>
+                    @endif
                     <a href="{{asset('storage/'.$space->file)}}" class="btn btn-warning" target="_blank">
-                    <i class="fas fa-download"></i>
-                  </a>
+                      <i class="fas fa-download"></i>
+                    </a>
                   </div>
                 </div>
               </div>
