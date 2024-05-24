@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function Space()
+    {
+        return $this->hasMany(Space::class);
+    }
 }

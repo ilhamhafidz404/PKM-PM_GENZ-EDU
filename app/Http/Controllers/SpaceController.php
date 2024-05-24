@@ -13,8 +13,11 @@ class SpaceController extends Controller
      */
     public function index()
     {
+        $spaces = Space::with("user")->orderBy('id', 'DESC')->get();
 
-        return view("space.index");
+        return view("space.index", [
+            "spaces" => $spaces
+        ]);
     }
 
     /**
