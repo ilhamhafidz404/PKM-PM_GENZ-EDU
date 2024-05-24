@@ -12,11 +12,11 @@
 
             <div class="card card-warning">
               <div class="card-header">
-                <h4>Login Guru</h4>
+                <h4>Login Orang Tua</h4>
               </div>
 
               <div class="card-body">
-                <form method="POST" action="{{ route('loginTeacher-validation') }}">
+                <form method="POST" action="{{ route('loginParent-validation') }}">
                   @csrf
                   <div class="form-group">
                     <label for="email">Email</label>

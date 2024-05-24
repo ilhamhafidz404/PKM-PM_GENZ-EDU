@@ -16,7 +16,12 @@ class SpaceController extends Controller
 
     public function index()
     {
-        $spaces = Space::with("user")->orderBy('id', 'DESC')->paginate(5);
+        if (auth()->guard("parent")->user()) {
+            $spaces = Space::with("user")->orderBy('id', 'DESC')->whereUserId(auth()->guard("parent")->user()->user_id)->paginate(5);
+        } else {
+            $spaces = Space::with("user")->orderBy('id', 'DESC')->paginate(5);
+        }
+
 
         return view("space.index", [
             "spaces" => $spaces

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parents;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -50,6 +51,24 @@ class AuthController extends Controller
 
         if (Hash::check($request->password, $teacher->password)) {
             auth()->guard("teacher")->login($teacher);
+
+            return redirect()->route('spaces.index');
+        }
+
+        return redirect()->back();
+    }
+
+    //
+    public function loginParent()
+    {
+        return view("auth.loginParent");
+    }
+    public function validationParent(Request $request)
+    {
+        $parent = Parents::where("email", "=", $request->email)->first();
+
+        if (Hash::check($request->password, $parent->password)) {
+            auth()->guard("parent")->login($parent);
 
             return redirect()->route('spaces.index');
         }

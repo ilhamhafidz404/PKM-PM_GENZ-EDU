@@ -24,7 +24,11 @@ Route::resource('/spaces', SpaceController::class);
 
 Route::get("/auth/login", [AuthController::class, 'login'])->name("login");
 Route::post("/auth/login", [AuthController::class, 'validation'])->name("login-validation");
-Route::post("/auth/logout", [AuthController::class, 'logout'])->name("logout");
 
 Route::get("/auth/loginTeacher", [AuthController::class, 'loginTeacher'])->name("loginTeacher");
 Route::post("/auth/loginTeacher", [AuthController::class, 'validationTeacher'])->name("loginTeacher-validation");
+
+Route::get("/auth/loginParent", [AuthController::class, 'loginParent'])->name("loginParent");
+Route::post("/auth/loginParent", [AuthController::class, 'validationParent'])->name("loginParent-validation");
+
+Route::post("/auth/logout", [AuthController::class, 'logout'])->name("logout");

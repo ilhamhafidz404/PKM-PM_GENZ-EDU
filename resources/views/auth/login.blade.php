@@ -45,6 +45,13 @@
                     <button type="submit" class="btn btn-warning btn-lg btn-block">
                       Login
                     </button>
+                    <hr>
+                    <a href="{{route('loginTeacher')}}" class="btn btn-secondary btn-lg btn-block">
+                      Login Guru
+                    </a>
+                    <a href="{{route('loginParent')}}" class="btn btn-secondary btn-lg btn-block">
+                      Login Orang Tua
+                    </a>
                   </div>
                 </form>
               </div>

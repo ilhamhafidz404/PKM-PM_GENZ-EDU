@@ -30,9 +30,9 @@
                   </div>
                   <div>
                     @if (auth()->guard("teacher")->user())
-                      <a href="{{asset('storage/'.$space->file)}}" class="btn btn-danger" target="_blank">
-                        <i class="fas fa-ban"></i>
-                      </a>
+                    <a href="{{asset('storage/'.$space->file)}}" class="btn btn-danger" target="_blank">
+                      <i class="fas fa-ban"></i>
+                    </a>
                     @endif
                     <a href="{{asset('storage/'.$space->file)}}" class="btn btn-warning" target="_blank">
                       <i class="fas fa-download"></i>

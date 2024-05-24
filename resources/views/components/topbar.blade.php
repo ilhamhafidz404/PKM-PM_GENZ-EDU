@@ -9,6 +9,8 @@
         <div class="d-sm-none d-lg-inline-block">
           @if (auth()->guard("teacher")->user())
             {{auth()->guard("teacher")->user()->name}}
+          @elseif (auth()->guard("parent")->user())
+            {{auth()->guard("parent")->user()->name}} (Orang Tua: {{auth()->guard("parent")->user()->user->name}})
           @else  
             {{Auth::user()->name}}
           @endif
