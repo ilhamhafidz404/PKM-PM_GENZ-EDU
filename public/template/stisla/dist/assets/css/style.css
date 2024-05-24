@@ -1404,7 +1404,7 @@ table tr:hover .table-links {
 .nav-pills .nav-item .nav-link.active {
     box-shadow: 0 2px 6px #acb5f6;
     color: #fff;
-    background-color: #6777ef;
+    background-color: #ffa426;
 }
 .nav-pills .nav-item .nav-link .badge {
     padding: 5px 8px;
@@ -2388,15 +2388,15 @@ h6 .badge {
     }
     .nav-collapse .navbar-nav .nav-item .nav-link {
         background-color: #fff;
-        color: #6c757d;
+        color: #ffa426;
     }
     .nav-collapse .navbar-nav .nav-item .nav-link:hover {
         background-color: #fcfcfd;
-        color: #6777ef;
+        color: #ffa426;
     }
     .nav-collapse .navbar-nav .nav-item:focus > a,
     .nav-collapse .navbar-nav .nav-item.active > a {
-        background-color: #6777ef;
+        background-color: #ffa426;
         color: #fff;
     }
 
@@ -3443,7 +3443,7 @@ body.layout-3
     .navbar-nav
     > .nav-item.active
     > .nav-link {
-    color: #6777ef;
+    color: #ffa426;
 }
 body.layout-3
     .navbar.navbar-secondary
@@ -3513,7 +3513,7 @@ body.layout-3
     right: initial;
     bottom: 0;
     height: 2px;
-    background-color: #6777ef;
+    background-color: #ffa426;
     transition: all 0.5s;
 }
 body.layout-3

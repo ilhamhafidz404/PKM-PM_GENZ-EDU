@@ -18,7 +18,7 @@ class AuthController extends Controller
         $user = User::where("nisn", "=", $request->nisn)->first();
 
         if (Hash::check($request->password, $user->password)) {
-            return view('welcome');
+            return redirect()->route('spaces.index');
         }
 
         return redirect()->back();
