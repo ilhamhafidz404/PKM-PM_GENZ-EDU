@@ -16,37 +16,31 @@
             </a>
           </div>
           <div class="section-body">
-              @foreach ($spaces as $space)
-                <div class="card">
-                  <div class="card-header">
-                    <h4>{{$space->title}}</h4>
+            @foreach ($spaces as $space)
+              <div class="card">
+                <div class="card-header">
+                  <h4>{{$space->title}}</h4>
+                </div>
+                <div class="card-body">
+                  <p>{{$space->description}}</p>
+                </div>
+                <div class="card-footer bg-whitesmoke d-flex justify-content-between align-items-center">
+                  <div>
+                    <p class="m-0">{{$space->user->name}} &bullet; {{$space->created_at->diffForHumans()}}</p>
                   </div>
-                  <div class="card-body">
-                    <p>{{$space->description}}</p>
-                  </div>
-                  <div class="card-footer bg-whitesmoke d-flex justify-content-between align-items-center">
-                    <div>
-                      <p class="m-0">{{$space->user->name}} &bullet; {{$space->created_at->diffForHumans()}}</p>
-                    </div>
-                    <div>
-                      <a href="{{asset('storage/'.$space->file)}}" class="btn btn-warning" target="_blank">
-                      <i class="fas fa-download"></i>
-                    </a>
-                    </div>
+                  <div>
+                    <a href="{{asset('storage/'.$space->file)}}" class="btn btn-warning" target="_blank">
+                    <i class="fas fa-download"></i>
+                  </a>
                   </div>
                 </div>
-              @endforeach
-            </div>
-          </section>
+              </div>
+            @endforeach
+          </div>
+          {{ $spaces->links('vendor.pagination.bootstrap-5') }}
+        </section>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
-        </div>
-        <div class="footer-right">
-          
-        </div>
-      </footer>
+      @include("components.footer")
     </div>
   </div>
 @endsection

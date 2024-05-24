@@ -11,7 +11,7 @@ class SpaceController extends Controller
 {
     public function index()
     {
-        $spaces = Space::with("user")->orderBy('id', 'DESC')->get();
+        $spaces = Space::with("user")->orderBy('id', 'DESC')->paginate(5);
 
         return view("space.index", [
             "spaces" => $spaces
