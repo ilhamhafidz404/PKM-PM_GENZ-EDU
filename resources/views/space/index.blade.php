@@ -11,12 +11,14 @@
         <section class="section">
           <div class="section-header d-flex justify-content-between">
             <h1>Ruang Ekspresi</h1>
+            @if (!auth()->guard("teacher")->user())
             <a href="{{route('spaces.create')}}" class="btn btn-warning">
               Buat Ekspresi
             </a>
+            @endif
           </div>
           <div class="section-body">
-            @foreach ($spaces as $space)
+            @forelse ($spaces as $space)
               <div class="card">
                 <div class="card-header">
                   <h4>{{$space->title}}</h4>
@@ -28,11 +30,15 @@
                   <div>
                     <p class="m-0">{{$space->user->name}} &bullet; {{$space->created_at->diffForHumans()}}</p>
                   </div>
-                  <div>
+                  <div class="d-flex align-items-center">
                     @if (auth()->guard("teacher")->user())
-                    <a href="{{asset('storage/'.$space->file)}}" class="btn btn-danger" target="_blank">
-                      <i class="fas fa-ban"></i>
-                    </a>
+                    <form action="{{ route('spaces.destroy', $space->id) }}" method="POST" class="mr-1">
+                      @csrf
+                      @method("DELETE")
+                      <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-ban"></i>
+                      </button>
+                    </form>
                     @endif
                     <a href="{{asset('storage/'.$space->file)}}" class="btn btn-warning" target="_blank">
                       <i class="fas fa-download"></i>
@@ -40,7 +46,27 @@
                   </div>
                 </div>
               </div>
-            @endforeach
+            @empty
+              <div class="card">
+                <div class="card-body">
+                  <div class="empty-state" data-height="400">
+                    <div class="empty-state-icon bg-warning">
+                      <i class="fas fa-question"></i>
+                    </div>
+                    <h2>Belum Ada Ekspresi</h2>
+                    @if (auth()->guard("teacher")->user())
+                    <p class="lead">
+                      Ayo ajak murid-murid anda untuk berkreasi!
+                    </p>
+                    @else
+                    <p class="lead">
+                      Ayo mulailah meng-ekspresikan kehebatanmu!
+                    </p>
+                    @endif
+                  </div>
+                </div>
+              </div>
+            @endforelse
           </div>
           {{ $spaces->links('vendor.pagination.bootstrap-5') }}
         </section>

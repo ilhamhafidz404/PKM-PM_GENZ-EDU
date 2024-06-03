@@ -82,8 +82,10 @@ class SpaceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Space $s)
+    public function destroy($id)
     {
-        //
+        Space::find($id)->delete();
+
+        return redirect()->route('spaces.index');
     }
 }

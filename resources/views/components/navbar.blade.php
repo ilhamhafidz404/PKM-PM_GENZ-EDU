@@ -10,7 +10,7 @@
       </li> --}}
       <li class="nav-item active">
         <a href="#" class="nav-link">
-          <i class="far fa-heart"></i>
+          <i class="fas fa-box"></i>
           <span>Space</span>
         </a>
       </li>
