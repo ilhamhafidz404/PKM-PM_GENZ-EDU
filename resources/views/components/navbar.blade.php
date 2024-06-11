@@ -9,6 +9,12 @@
         </a>
       </li>
       @endif
+      <li class="nav-item {{ request()->is('absent*') ? 'active' : '' }}">
+        <a href={{ route('absent.index') }} class="nav-link">
+          <i class="fas fa-clock"></i>
+          <span>Absensi</span>
+        </a>
+      </li>
       <li class="nav-item {{ request()->is('spaces*') ? 'active' : '' }}">
         <a href={{ route('spaces.index') }} class="nav-link">
           <i class="fas fa-box"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\UserController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Route::resource('/spaces', SpaceController::class);
 Route::resource('/users', UserController::class);
+Route::resource('/absent', AbsentController::class);
 
 Route::get("/auth/login", [AuthController::class, 'login'])->name("login");
 Route::post("/auth/login", [AuthController::class, 'validation'])->name("login-validation");
