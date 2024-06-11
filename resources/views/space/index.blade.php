@@ -11,7 +11,7 @@
         <section class="section">
           <div class="section-header d-flex justify-content-between">
             <h1>Ruang Ekspresi</h1>
-            @if (!auth()->guard("teacher")->user())
+            @if (!auth()->guard("teacher")->user() && !auth()->guard("parent")->user())
             <a href="{{route('spaces.create')}}" class="btn btn-warning">
               Buat Ekspresi
             </a>

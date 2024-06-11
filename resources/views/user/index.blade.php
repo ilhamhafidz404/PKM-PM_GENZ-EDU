@@ -36,7 +36,7 @@
                       <td>{{ $user->name }}</td>
                       <td>{{ "-" }}</td>
                       <td>
-                        <button class="btn btn-warning">Detail</button>
+                        <button class="btn btn-warning"  data-toggle="modal" data-target="#detailStudent{{ $user->id }}">Detail</button>
                       </td>
                     </tr>
                   @empty
@@ -49,6 +49,39 @@
             </div>
           </div>
         </section>
+
+        @foreach ($users as $user)
+          <div class="modal fade" id="detailStudent{{ $user->id }}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="detailStudentLabel">Detail Siswa</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table>
+                    <tr>
+                      <td>Nama</td>
+                      <td>:</td>
+                      <td>{{ $user->name }}</td>
+                    </tr>
+                    <tr>
+                      <td>NISN</td>
+                      <td>:</td>
+                      <td>{{ $user->nisn }}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>  
+        @endforeach
+
       </div>
       @include("components.footer")
     </div>
