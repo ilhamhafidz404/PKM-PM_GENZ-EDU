@@ -8,8 +8,14 @@
           <li class="nav-item"><a href="index.html" class="nav-link">Ecommerce Dashboard</a></li>
         </ul>
       </li> --}}
-      <li class="nav-item active">
-        <a href="#" class="nav-link">
+      <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
+        <a href={{ route('users.index') }} class="nav-link">
+          <i class="fas fa-user"></i>
+          <span>Siswa</span>
+        </a>
+      </li>
+      <li class="nav-item {{ request()->is('spaces*') ? 'active' : '' }}">
+        <a href={{ route('spaces.index') }} class="nav-link">
           <i class="fas fa-box"></i>
           <span>Space</span>
         </a>
