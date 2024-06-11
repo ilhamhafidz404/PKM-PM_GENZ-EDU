@@ -11,6 +11,8 @@ class Parents extends Authenticatable
 
     protected $table = "parents";
 
+    protected $fillable = ["name", "username", "email", "password", "user_id"];
+
     public function User()
     {
         return $this->belongsTo(User::class);

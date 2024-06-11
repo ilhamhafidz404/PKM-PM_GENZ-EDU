@@ -11,11 +11,9 @@
         <section class="section">
           <div class="section-header d-flex justify-content-between">
             <h1>Siswa</h1>
-            @if (!auth()->guard("teacher")->user())
-            <a href="{{route('spaces.create')}}" class="btn btn-warning">
+            <a href="{{route('users.create')}}" class="btn btn-warning">
               Tambah Siswa
             </a>
-            @endif
           </div>
 
           <div class="card">

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parents;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -17,20 +20,29 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            "name" => $request->student,
+            "nisn" => $request->nisn,
+            "password" => Hash::make($request->password),
+            "profile" => "test.jpg",
+        ]);
+
+        Parents::create([
+            "name" => $request->parent,
+            "username" => Str::slug($request->parent),
+            "email" => Str::slug($request->parent) . "@gmail.com",
+            "password" => Hash::make($request->password),
+            "user_id" => $user->id
+        ]);
+
+        return redirect()->route("users.index");
     }
 
     /**
