@@ -21,7 +21,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="nisn">NISN</label>
                         <input 
@@ -38,7 +38,7 @@
                         @enderror
                       </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="student">Nama Siswa</label>
                         <input 
@@ -55,7 +55,7 @@
                         @enderror
                       </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="profile">Foto</label>
                         <input 
@@ -72,7 +72,7 @@
                         @enderror
                       </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="password">Password</label>
                         <input 

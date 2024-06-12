@@ -6,11 +6,12 @@
     <li class="dropdown">
       <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
         <img alt="image" src="{{asset('template/stisla/dist/')}}/assets/img/avatar/avatar-4.png" class="rounded-circle mr-1">
-        <div class="d-sm-none d-lg-inline-block">
+        <div class="d-inline-block">
           @if (auth()->guard("teacher")->user())
             {{auth()->guard("teacher")->user()->name}}
           @elseif (auth()->guard("parent")->user())
-            {{auth()->guard("parent")->user()->name}} (Orang Tua: {{auth()->guard("parent")->user()->user->name}})
+            {{auth()->guard("parent")->user()->name}} 
+            <small>({{auth()->guard("parent")->user()->user->name}})</small>
           @else  
             {{Auth::user()->name}}
           @endif
