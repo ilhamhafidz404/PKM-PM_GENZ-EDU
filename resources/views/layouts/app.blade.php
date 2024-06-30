@@ -27,7 +27,7 @@
 
 <body class="layout-3">
   
-
+  @include('sweetalert::alert')
   @yield('content')
 
   <!-- General JS Scripts -->

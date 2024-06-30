@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Parents;
-use App\Models\Teacher;
-use App\Models\User;
+use App\Models\{Parents,Teacher,User};
+use Illuminate\Support\Facades\{Auth,Hash};
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
+
     public function login()
     {
         if (Auth::check()) {
@@ -24,12 +24,14 @@ class AuthController extends Controller
     {
         $user = User::where("nisn", "=", $request->nisn)->first();
 
-        if (Hash::check($request->password, $user->password)) {
+        if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
 
+            toast('Login Berhasil','success');
             return redirect()->route('spaces.index');
         }
 
+        Alert::error('Gagal Login', 'Data yang anda masukkan salah!');
         return redirect()->back();
     }
 
@@ -50,12 +52,14 @@ class AuthController extends Controller
     {
         $teacher = Teacher::where("email", "=", $request->email)->first();
 
-        if (Hash::check($request->password, $teacher->password)) {
+        if ($teacher && Hash::check($request->password, $teacher->password)) {
             auth()->guard("teacher")->login($teacher);
 
+            toast('Login Berhasil','success');
             return redirect()->route('spaces.index');
         }
 
+        Alert::error('Gagal Login', 'Data yang anda masukkan salah!');
         return redirect()->back();
     }
 
@@ -68,12 +72,14 @@ class AuthController extends Controller
     {
         $parent = Parents::where("email", "=", $request->email)->first();
 
-        if (Hash::check($request->password, $parent->password)) {
+        if ($parent && Hash::check($request->password, $parent->password)) {
             auth()->guard("parent")->login($parent);
 
+            toast('Login Berhasil','success');
             return redirect()->route('spaces.index');
         }
 
+        Alert::error('Gagal Login', 'Data yang anda masukkan salah!');
         return redirect()->back();
     }
 }
