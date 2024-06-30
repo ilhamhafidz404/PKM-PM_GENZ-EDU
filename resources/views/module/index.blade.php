@@ -12,7 +12,7 @@
           <div class="section-header d-flex justify-content-between">
             <h1>Modul Ajar</h1>
             @if (auth()->guard("teacher")->user())
-              <a href="{{route('spaces.create')}}" class="btn btn-warning">
+              <a href="{{route('modules.create')}}" class="btn btn-warning">
                 Upload Modul
               </a>
             @endif
@@ -25,7 +25,7 @@
                     <li class="media">
                       <div class="media-body">
                         <div class="media-right">
-                          <a href="" class="btn btn-warning">
+                          <a href="{{ asset('storage/'.$module->file) }}" class="btn btn-warning" target="_blank">
                             <i class="fas fa-download"></i>
                           </a>
                         </div>

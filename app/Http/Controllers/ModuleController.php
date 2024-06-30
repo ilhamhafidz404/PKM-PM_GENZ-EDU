@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Module;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ModuleController extends Controller
 {
@@ -24,7 +26,7 @@ class ModuleController extends Controller
      */
     public function create()
     {
-        //
+        return view('module.create');
     }
 
     /**
@@ -32,7 +34,22 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'file' => 'required',
+        ]);
+
+        $file = $request->file('file');
+        $path = $file->store('modules', 'public');
+
+        Module::create([
+            "title" => $request->title,
+            "slug" => Str::slug($request->title),
+            "file" => $path,
+            "teacher_id" => auth()->guard("teacher")->user()->id,
+        ]);
+
+        return redirect()->route('modules.index');
     }
 
     /**

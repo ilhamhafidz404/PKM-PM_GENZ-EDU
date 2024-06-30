@@ -72,6 +72,7 @@ class AuthController extends Controller
     {
         $parent = Parents::where("email", "=", $request->email)->first();
 
+        
         if ($parent && Hash::check($request->password, $parent->password)) {
             auth()->guard("parent")->login($parent);
 
