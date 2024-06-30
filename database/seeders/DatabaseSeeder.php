@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SpaceSeeder::class,
             TeacherSeeder::class,
             ParentSeeder::class,
+            ModuleSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

@@ -15,6 +15,12 @@
           <span>Absensi</span>
         </a>
       </li>
+      <li class="nav-item {{ request()->is('modules*') ? 'active' : '' }}">
+        <a href={{ route('modules.index') }} class="nav-link">
+          <i class="fas fa-book"></i>
+          <span>Modul Ajar</span>
+        </a>
+      </li>
       <li class="nav-item {{ request()->is('spaces*') ? 'active' : '' }}">
         <a href={{ route('spaces.index') }} class="nav-link">
           <i class="fas fa-box"></i>
