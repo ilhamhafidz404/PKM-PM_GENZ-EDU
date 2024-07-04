@@ -14,7 +14,7 @@ class AbsentController extends Controller
 
         $absents = Absent::with("user")->latest()->get();
         $now = Carbon::now('Asia/Jakarta');
-        $eightAM = Carbon::today('Asia/Jakarta')->setTime(4, 0, 0);
+        $eightAM = Carbon::today('Asia/Jakarta')->setTime(20, 0, 0);
 
 
         if (auth()->guard("teacher")->user()) {

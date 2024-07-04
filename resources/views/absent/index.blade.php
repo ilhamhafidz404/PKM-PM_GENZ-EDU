@@ -73,7 +73,7 @@
                     <ul>
                       <li>Kamu belum absen hari ini!</li>
                       <li>Diharapkan absen tepat waktu sebelum pukul 8 pagi</li>
-                      <li>Cara absen</li>
+                      <li>Lakukan foto</li>
                     </ul>
                     <form action="" method="POST" enctype="multipart/form-data">
                       @csrf
