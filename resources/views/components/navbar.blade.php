@@ -33,6 +33,12 @@
           <span>Article</span>
         </a>
       </li>
+      <li class="nav-item {{ request()->is('evaluations*') ? 'active' : '' }}">
+        <a href={{ route('evaluations.index') }} class="nav-link">
+          <i class="fas fa-star"></i>
+          <span>Evaluation</span>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
