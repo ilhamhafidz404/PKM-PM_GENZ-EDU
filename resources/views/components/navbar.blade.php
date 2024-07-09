@@ -27,6 +27,12 @@
           <span>Space</span>
         </a>
       </li>
+      <li class="nav-item {{ request()->is('articles*') ? 'active' : '' }}">
+        <a href={{ route('articles.index') }} class="nav-link">
+          <i class="fas fa-newspaper"></i>
+          <span>Article</span>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
