@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AbsentController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\EvaluationController;
 use App\Http\Controllers\Api\SpaceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/login", [AuthController::class, 'login']);
 Route::get("/spaces", [SpaceController::class, 'index']);
 Route::get("/absent", [AbsentController::class, 'index']);
+Route::get("/evaluation", EvaluationController::class);

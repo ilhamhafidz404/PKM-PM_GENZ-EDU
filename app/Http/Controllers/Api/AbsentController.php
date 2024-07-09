@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AbsentController extends Controller
 {
     public function index(Request $request){
-        $checkTodayAbsent = Absent::whereDate('created_at', date('Y-m-d'))->whereUserId($request->user_id)->first();
+        $checkTodayAbsent = Absent::whereDate('created_at', date('Y-m-d'))->whereUserId($request->user_id)->with("user")->first();
 
         if($checkTodayAbsent){
 
@@ -24,7 +24,7 @@ class AbsentController extends Controller
         }
 
         return response()->json([
-            "status" => "EDU-001",
+            "status" => "EDU-002",
             "message" => "Anak anda belum absen",
             "data" => (object) [],
         ]);
