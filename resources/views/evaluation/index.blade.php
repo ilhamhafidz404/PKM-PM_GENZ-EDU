@@ -47,7 +47,9 @@
           @else
             <div class="card p-4">
               <h5>Lihat Hasil Evaluasi Kamu</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo possimus, doloremque vero nam et quos, totam expedita beatae sequi libero in illo, a voluptate commodi obcaecati dicta maxime cupiditate illum.</p>
+              <p>
+                Hasil evaluasi pembelajaran GENZ-EDU meliputi 5 aspek, yaitu Religius, nasionalis, mandiri, gotong royong, integritas. Nilai-mu akan dapat dilihat oleh orang-tua / wali mu, jadi AYO semangat buat ningkatin prestasimu!
+              </p>
               <a href="{{ route("evaluations.show", auth()->user()->id) }}" class="">Lihat Evaluasi</a>
             </div>
           @endif

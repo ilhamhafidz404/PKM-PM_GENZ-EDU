@@ -20,8 +20,31 @@
               @if ($evaluation)
                 <div class="d-flex align-items-center">
                   <div style="width: 90%">
+                    <h5>Religius</h5>
+                    <p>merupakan sikap spiritual atau kegiatan keagamaan yang dilakukan oleh setiap individu dalam memuji keesaan Tuhan. Selain itu, religius merupakan sikap menghargai perbedaan agama atau toleransi antar umat beragama.</p>
+                  </div>
+                  <div style="width: 10%; text-align: center">
+                    <small>Skor </small>
+                    <h3 class="
+                      @if($evaluation->religius >= 90)
+                      text-success
+                      @elseif($evaluation->religius >= 75)
+                      text-warning
+                      @else
+                      text-danger
+                      @endif
+                    ">
+                      {{ $evaluation->religius }}
+                    </h3>
+                  </div>
+                </div>
+                <hr>
+                <div class="d-flex align-items-center">
+                  <div style="width: 90%">
                     <h5>Nasionalis</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                    <p> 
+                      Nasional merupakan sikap yang menempatkan kepentingan bangsa dan negara diatas kepentingan privasi atau kelompoknya. 
+                    </p>
                   </div>
                   <div style="width: 10%; text-align: center">
                     <small>Skor </small>
@@ -41,28 +64,10 @@
                 <hr>
                 <div class="d-flex align-items-center">
                   <div style="width: 90%">
-                    <h5>Gotong Royong</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
-                  </div>
-                  <div style="width: 10%; text-align: center">
-                    <small>Skor </small>
-                    <h3 class="
-                      @if($evaluation->gotong_royong >= 90)
-                      text-success
-                      @elseif($evaluation->gotong_royong >= 75)
-                      text-warning
-                      @else
-                      text-danger
-                      @endif
-                    ">
-                      {{ $evaluation->gotong_royong }}
-                    </h3>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <div style="width: 90%">
                     <h5>Mandiri</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                    <p>
+                      Mandiri merupakan kemampuan dalam menghadapi berbagai permasalahan hidup.
+                    </p>
                   </div>
                   <div style="width: 10%; text-align: center">
                     <small>Skor </small>
@@ -79,10 +84,36 @@
                     </h3>
                   </div>
                 </div>
+                <hr>
+                <div class="d-flex align-items-center">
+                  <div style="width: 90%">
+                    <h5>Gotong Royong</h5>
+                    <p>
+                      Gotong royong merupakan sikap yang mencerminkan tindakan menghargai semangat kerja sama dan bahu membahu dalam menyelesaikan persoalan bersama atau untuk mencapai tujuan bersama.
+                    </p>
+                  </div>
+                  <div style="width: 10%; text-align: center">
+                    <small>Skor </small>
+                    <h3 class="
+                      @if($evaluation->gotong_royong >= 90)
+                      text-success
+                      @elseif($evaluation->gotong_royong >= 75)
+                      text-warning
+                      @else
+                      text-danger
+                      @endif
+                    ">
+                      {{ $evaluation->gotong_royong }}
+                    </h3>
+                  </div>
+                </div>
+                <hr>
                 <div class="d-flex align-items-center">
                   <div style="width: 90%">
                     <h5>Integritas</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                    <p>
+                      Integritas merupakan sikap yang mencerminkan pribadi yang dapat dipercaya dan bertanggung jawab serta dapat menjaga kehormatan diri.
+                    </p>
                   </div>
                   <div style="width: 10%; text-align: center">
                     <small>Skor </small>
@@ -99,35 +130,30 @@
                     </h3>
                   </div>
                 </div>
-                <hr>
-                <div class="d-flex align-items-center">
-                  <div style="width: 90%">
-                    <h5>Religius</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
-                  </div>
-                  <div style="width: 10%; text-align: center">
-                    <small>Skor </small>
-                    <h3 class="
-                      @if($evaluation->religius >= 90)
-                      text-success
-                      @elseif($evaluation->religius >= 75)
-                      text-warning
-                      @else
-                      text-danger
-                      @endif
-                    ">
-                      {{ $evaluation->religius }}
-                    </h3>
-                  </div>
-                </div>
               @else
                 <form action="{{ route("evaluations.store") }}" method="POST">
                   @csrf
                   <input type="text" name="user_id" value="{{ $user_id }}" hidden>
                   <div class="d-flex align-items-center">
                     <div style="width: 70%">
+                      <h5>Religius</h5>
+                      <p>
+                        Merupakan sikap spiritual atau kegiatan keagamaan yang dilakukan oleh setiap individu dalam memuji keesaan Tuhan. Selain itu, religius merupakan sikap menghargai perbedaan agama atau toleransi antar umat beragama.
+                      </p>
+                    </div>
+                    <div style="width: 30%; text-align: center">
+                      <small>Skor </small>
+                      <br>
+                      <input type="text" name="religius">
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="d-flex align-items-center">
+                    <div style="width: 70%">
                       <h5>Nasionalis</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                      <p> 
+                        Nasional merupakan sikap yang menempatkan kepentingan bangsa dan negara diatas kepentingan privasi atau kelompoknya. 
+                      </p>
                     </div>
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
@@ -139,7 +165,9 @@
                   <div class="d-flex align-items-center">
                     <div style="width: 70%">
                       <h5>Gotong Royong</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                      <p>
+                        Gotong royong merupakan sikap yang mencerminkan tindakan menghargai semangat kerja sama dan bahu membahu dalam menyelesaikan persoalan bersama atau untuk mencapai tujuan bersama.
+                      </p>
                     </div>
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
@@ -150,19 +178,10 @@
                   <hr>
                   <div class="d-flex align-items-center">
                     <div style="width: 70%">
-                      <h5>Religius</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
-                    </div>
-                    <div style="width: 30%; text-align: center">
-                      <small>Skor </small>
-                      <br>
-                      <input type="text" name="religius">
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <div style="width: 70%">
                       <h5>Mandiri</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                      <p>
+                        Mandiri merupakan kemampuan dalam menghadapi berbagai permasalahan hidup.
+                      </p>
                     </div>
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
@@ -173,7 +192,9 @@
                   <div class="d-flex align-items-center">
                     <div style="width: 70%">
                       <h5>Integritas</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                      <p>
+                        Integritas merupakan sikap yang mencerminkan pribadi yang dapat dipercaya dan bertanggung jawab serta dapat menjaga kehormatan diri.
+                      </p>
                     </div>
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
@@ -197,8 +218,31 @@
               @if ($evaluation)
                 <div class="d-flex align-items-center">
                   <div style="width: 90%">
+                    <h5>Religius</h5>
+                    <p>merupakan sikap spiritual atau kegiatan keagamaan yang dilakukan oleh setiap individu dalam memuji keesaan Tuhan. Selain itu, religius merupakan sikap menghargai perbedaan agama atau toleransi antar umat beragama.</p>
+                  </div>
+                  <div style="width: 10%; text-align: center">
+                    <small>Skor </small>
+                    <h3 class="
+                      @if($evaluation->religius >= 90)
+                      text-success
+                      @elseif($evaluation->religius >= 75)
+                      text-warning
+                      @else
+                      text-danger
+                      @endif
+                    ">
+                      {{ $evaluation->religius }}
+                    </h3>
+                  </div>
+                </div>
+                <hr>
+                <div class="d-flex align-items-center">
+                  <div style="width: 90%">
                     <h5>Nasionalis</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                    <p> 
+                      Nasional merupakan sikap yang menempatkan kepentingan bangsa dan negara diatas kepentingan privasi atau kelompoknya. 
+                    </p>
                   </div>
                   <div style="width: 10%; text-align: center">
                     <small>Skor </small>
@@ -218,28 +262,10 @@
                 <hr>
                 <div class="d-flex align-items-center">
                   <div style="width: 90%">
-                    <h5>Gotong Royong</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
-                  </div>
-                  <div style="width: 10%; text-align: center">
-                    <small>Skor </small>
-                    <h3 class="
-                      @if($evaluation->gotong_royong >= 90)
-                      text-success
-                      @elseif($evaluation->gotong_royong >= 75)
-                      text-warning
-                      @else
-                      text-danger
-                      @endif
-                    ">
-                      {{ $evaluation->gotong_royong }}
-                    </h3>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <div style="width: 90%">
                     <h5>Mandiri</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                    <p>
+                      Mandiri merupakan kemampuan dalam menghadapi berbagai permasalahan hidup.
+                    </p>
                   </div>
                   <div style="width: 10%; text-align: center">
                     <small>Skor </small>
@@ -256,10 +282,36 @@
                     </h3>
                   </div>
                 </div>
+                <hr>
+                <div class="d-flex align-items-center">
+                  <div style="width: 90%">
+                    <h5>Gotong Royong</h5>
+                    <p>
+                      Gotong royong merupakan sikap yang mencerminkan tindakan menghargai semangat kerja sama dan bahu membahu dalam menyelesaikan persoalan bersama atau untuk mencapai tujuan bersama.
+                    </p>
+                  </div>
+                  <div style="width: 10%; text-align: center">
+                    <small>Skor </small>
+                    <h3 class="
+                      @if($evaluation->gotong_royong >= 90)
+                      text-success
+                      @elseif($evaluation->gotong_royong >= 75)
+                      text-warning
+                      @else
+                      text-danger
+                      @endif
+                    ">
+                      {{ $evaluation->gotong_royong }}
+                    </h3>
+                  </div>
+                </div>
+                <hr>
                 <div class="d-flex align-items-center">
                   <div style="width: 90%">
                     <h5>Integritas</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
+                    <p>
+                      Integritas merupakan sikap yang mencerminkan pribadi yang dapat dipercaya dan bertanggung jawab serta dapat menjaga kehormatan diri.
+                    </p>
                   </div>
                   <div style="width: 10%; text-align: center">
                     <small>Skor </small>
@@ -273,27 +325,6 @@
                       @endif
                     ">
                       {{ $evaluation->integritas }}
-                    </h3>
-                  </div>
-                </div>
-                <hr>
-                <div class="d-flex align-items-center">
-                  <div style="width: 90%">
-                    <h5>Religius</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nostrum saepe sit commodi architecto officiis beatae dolorem! Fugiat voluptatem officiis corrupti. Expedita aperiam nihil alias provident, a dolor dicta cumque.</p>
-                  </div>
-                  <div style="width: 10%; text-align: center">
-                    <small>Skor </small>
-                    <h3 class="
-                      @if($evaluation->religius >= 90)
-                      text-success
-                      @elseif($evaluation->religius >= 75)
-                      text-warning
-                      @else
-                      text-danger
-                      @endif
-                    ">
-                      {{ $evaluation->religius }}
                     </h3>
                   </div>
                 </div>

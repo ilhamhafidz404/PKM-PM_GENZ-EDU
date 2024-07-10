@@ -25,12 +25,12 @@ Route::get('/', function () {
 });
 
 
-Route::resource('/spaces', SpaceController::class);
-Route::resource('/users', UserController::class);
-Route::resource('/absent', AbsentController::class);
-Route::resource('/modules', ModuleController::class);
-Route::resource('/articles', ArticleController::class);
-Route::resource('/evaluations', EvaluationController::class);
+Route::middleware(['auth'])->resource('/spaces', SpaceController::class);
+Route::middleware(['auth'])->resource('/users', UserController::class);
+Route::middleware(['auth'])->resource('/absent', AbsentController::class);
+Route::middleware(['auth'])->resource('/modules', ModuleController::class);
+Route::middleware(['auth'])->resource('/articles', ArticleController::class);
+Route::middleware(['auth'])->resource('/evaluations', EvaluationController::class);
 
 Route::get("/auth/login", [AuthController::class, 'login'])->name("login");
 Route::post("/auth/login", [AuthController::class, 'validation'])->name("login-validation");
