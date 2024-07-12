@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             ParentSeeder::class,
             ModuleSeeder::class,
             ArticleSeeder::class,
-            EvaluationSeeder::class
+            EvaluationSeeder::class,
+            QuizSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

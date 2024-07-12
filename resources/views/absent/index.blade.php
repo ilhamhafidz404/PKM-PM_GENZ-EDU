@@ -10,7 +10,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header d-flex justify-content-between">
-            <h1>Absensi</h1>
+            <h1>Presensi</h1>
           </div>
           <div class="section-body">
             @if (auth()->guard("teacher")->user())

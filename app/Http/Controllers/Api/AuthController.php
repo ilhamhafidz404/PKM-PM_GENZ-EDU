@@ -13,6 +13,7 @@ class AuthController extends Controller
     public function login(Request $request){
         if($request->type == 1){
             $user = User::where("nisn", "=", $request->uname)->first();
+            $user->type = "1";
         
             if ($user && Hash::check($request->password, $user->password)) {
                 return response()->json([
@@ -29,6 +30,7 @@ class AuthController extends Controller
             ]);
         } else if ($request->type == 2){
             $parent = Parents::where("email", "=", $request->uname)->first();
+            $parent->type = "2";
         
             if ($parent && Hash::check($request->password, $parent->password)) {
                 return response()->json([
