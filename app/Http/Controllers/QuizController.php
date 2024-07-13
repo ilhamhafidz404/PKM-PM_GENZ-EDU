@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -16,9 +17,21 @@ class QuizController extends Controller
             "quizzes" => $quizzes
         ]);
     }
+
+    public function show($slug){
+        $quiz = Quiz::whereSlug($slug)->first();
+        $questions = Question::whereQuizId($quiz->id)->get();
+
+        return view("quiz.show", [
+            "quiz" => $quiz,
+            "questions" => $questions
+        ]);
+    }
+
     public function create(){
         return view("quiz.create");
     }
+
     public function store(Request $request){
         Quiz::create([
             "title" => $request->title,

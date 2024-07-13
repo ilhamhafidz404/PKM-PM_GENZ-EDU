@@ -7,6 +7,7 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::middleware(['auth'])->resource('/modules', ModuleController::class);
 Route::middleware(['auth'])->resource('/articles', ArticleController::class);
 Route::middleware(['auth'])->resource('/quizzes', QuizController::class);
 Route::middleware(['auth'])->resource('/evaluations', EvaluationController::class);
+Route::middleware(['auth'])->resource('/questions', QuestionController::class);
 
 Route::get("/auth/login", [AuthController::class, 'login'])->name("login");
 Route::post("/auth/login", [AuthController::class, 'validation'])->name("login-validation");

@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             ModuleSeeder::class,
             ArticleSeeder::class,
             EvaluationSeeder::class,
-            QuizSeeder::class
+            QuizSeeder::class,
+            QuestionSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

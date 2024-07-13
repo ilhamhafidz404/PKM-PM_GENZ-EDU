@@ -1,0 +1,26 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Question;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class QuestionSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        Question::create([
+            "question" => "Apa itu nasionalis",
+            "a" => "s",
+            "b" => "fes",
+            "c" => "fewws",
+            "d" => "wws",
+            "answer" => "s",
+            "quiz_id" => 1
+        ]);
+    }
+}
