@@ -12,7 +12,7 @@
       <li class="nav-item {{ request()->is('absent*') ? 'active' : '' }}">
         <a href={{ route('absent.index') }} class="nav-link">
           <i class="fas fa-clock"></i>
-          <span>Present</span>
+          <span>Presensi</span>
         </a>
       </li>
       <li class="nav-item {{ request()->is('modules*') ? 'active' : '' }}">
@@ -27,7 +27,7 @@
           <span>Space</span>
         </a>
       </li>
-      <li class="nav-item {{ request()->is('spaces*') ? 'active' : '' }}">
+      <li class="nav-item {{ request()->is('quizzes*') ? 'active' : '' }}">
         <a href={{ route('quizzes.index') }} class="nav-link">
           <i class="fas fa-question"></i>
           <span>Quiz</span>

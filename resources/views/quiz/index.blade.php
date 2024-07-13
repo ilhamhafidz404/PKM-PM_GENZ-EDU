@@ -12,7 +12,7 @@
           <div class="section-header d-flex justify-content-between">
             <h1>Quiz</h1>
             @if (!auth()->guard("teacher")->user() && !auth()->guard("parent")->user())
-            <a href="{{route('spaces.create')}}" class="btn btn-warning">
+            <a href="{{route('quizzes.create')}}" class="btn btn-warning">
               Buat Quiz
             </a>
             @endif
