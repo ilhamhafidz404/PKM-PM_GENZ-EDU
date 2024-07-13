@@ -24,7 +24,7 @@
       <li class="nav-item {{ request()->is('spaces*') ? 'active' : '' }}">
         <a href={{ route('spaces.index') }} class="nav-link">
           <i class="fas fa-box"></i>
-          <span>Space</span>
+          <span>Ruang Ekspresi</span>
         </a>
       </li>
       <li class="nav-item {{ request()->is('quizzes*') ? 'active' : '' }}">
@@ -36,13 +36,13 @@
       <li class="nav-item {{ request()->is('articles*') ? 'active' : '' }}">
         <a href={{ route('articles.index') }} class="nav-link">
           <i class="fas fa-newspaper"></i>
-          <span>Article</span>
+          <span>Artikel</span>
         </a>
       </li>
       <li class="nav-item {{ request()->is('evaluations*') ? 'active' : '' }}">
         <a href={{ route('evaluations.index') }} class="nav-link">
           <i class="fas fa-star"></i>
-          <span>Evaluation</span>
+          <span>Evaluasi</span>
         </a>
       </li>
     </ul>

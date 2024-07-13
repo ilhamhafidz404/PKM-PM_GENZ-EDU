@@ -29,7 +29,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
 
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < count($request->answers); $i++) { 
 
             if (isset($request->answers[$i])) {
                 $selectedAnswer = $request->answers[$i];
@@ -65,6 +65,8 @@ class QuestionController extends Controller
                 "quiz_id" => $request->quiz_id
             ]);
         }
+
+        return redirect()->back();
     }
 
     /**

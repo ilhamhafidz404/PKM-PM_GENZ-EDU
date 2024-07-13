@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsentController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EvaluationController;
@@ -35,6 +36,7 @@ Route::middleware(['auth'])->resource('/articles', ArticleController::class);
 Route::middleware(['auth'])->resource('/quizzes', QuizController::class);
 Route::middleware(['auth'])->resource('/evaluations', EvaluationController::class);
 Route::middleware(['auth'])->resource('/questions', QuestionController::class);
+Route::middleware(['auth'])->resource('/answers', AnswerController::class);
 
 Route::get("/auth/login", [AuthController::class, 'login'])->name("login");
 Route::post("/auth/login", [AuthController::class, 'validation'])->name("login-validation");
