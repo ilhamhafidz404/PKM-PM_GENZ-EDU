@@ -23,7 +23,12 @@
           <div class="card">
             <div class="card-body d-flex" style="gap: 20px; align-items: center">
               <div style="width: 25%">
-                  <img alt="image" src="{{ asset("storage/".$article->banner) }}" class="img-fluid">
+                  <img 
+                    alt="articleBanner" 
+                    src="{{ asset("storage/".$article->banner) }}" 
+                    class="img-fluid img-thumbnail" 
+                    style="height: 200px; width: 100%; object-fit: cover" 
+                  />
               </div>
               <div style="width: 75%">
                 <h5>{{ $article->title }}</h5>

@@ -20,7 +20,11 @@
         <section class="card">
           <div class="card-body">
             <div>
-              <img src="{{ asset('storage/'.$article->banner) }}" class="w-100">
+              <img 
+                src="{{ asset('storage/'.$article->banner) }}" 
+                class="w-100 img-thumbnail" 
+                style="height: 400px; object-fit: cover"
+              >
             </div>
 
             <div class="mt-5">

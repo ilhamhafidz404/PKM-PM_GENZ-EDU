@@ -6,6 +6,7 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ArticleController extends Controller
 {
@@ -14,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy("id", "DESC")->get();
 
         return view("article.index", [
             "articles" => $articles
@@ -39,6 +40,11 @@ class ArticleController extends Controller
             'file' => 'required',
         ]);
 
+        if(!$request["article-trixFields"]["description"]){
+            Alert::error('Gagal Menambah', 'Masukan konten untuk artikel!');
+            return redirect()->back();
+        }
+
         $file = $request->file('file');
         $path = $file->store('articles', 'public');
 
@@ -49,6 +55,7 @@ class ArticleController extends Controller
             "banner" => $path,
         ]);
 
+        toast('Menambah Artikel Berhasil','success');
         return redirect()->route('articles.index');
     }
 

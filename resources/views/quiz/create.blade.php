@@ -55,7 +55,7 @@
                       <option value="nasionalis">Nasionalis</option>
                       <option value="mandiri">Mandiri</option>
                       <option value="gotong royong">Gotong Royong</option>
-                      <option value="integritas">Intgritas</option>
+                      <option value="integritas">Integritas</option>
                     </select>
                     @error('category')
                       <div class="invalid-feedback">

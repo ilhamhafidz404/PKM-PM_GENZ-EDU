@@ -50,7 +50,7 @@
               <p>
                 Hasil evaluasi pembelajaran GENZ-EDU meliputi 5 aspek, yaitu Religius, nasionalis, mandiri, gotong royong, integritas. Nilai-mu akan dapat dilihat oleh orang-tua / wali mu, jadi AYO semangat buat ningkatin prestasimu!
               </p>
-              <a href="{{ route("evaluations.show", auth()->user()->id) }}" class="">Lihat Evaluasi</a>
+              <a href="{{ route("evaluations.show", auth()->user()->id) }}" class="text-warning">Lihat Evaluasi</a>
             </div>
           @endif
         </section>

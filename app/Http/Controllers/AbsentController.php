@@ -37,6 +37,10 @@ class AbsentController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request, [
+            'photo' => 'required',
+        ]);
+
         $file = $request->file('photo');
         $path = $file->store('absents', 'public');
 

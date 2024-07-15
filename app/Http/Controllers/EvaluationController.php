@@ -13,7 +13,7 @@ class EvaluationController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy("id", "DESC")->get();
 
         return view("evaluation.index", [
             "users" => $users
@@ -33,6 +33,17 @@ class EvaluationController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'user_id' => 'required',
+            'gotong_royong' => 'required',
+            'religius' => 'required',
+            'nasionalis' => 'required',
+            'mandiri' => 'required',
+            'integritas' => 'required',
+            'message' => 'required',
+        ]);
+
         Evaluation::create([
             "user_id" => $request->user_id,
             "gotong_royong" => $request->gotong_royong,
@@ -43,6 +54,7 @@ class EvaluationController extends Controller
             "message" => $request->message,
         ]);
 
+        toast('Evaluasi Berhasil','success');
         return redirect()->back();
     }
 

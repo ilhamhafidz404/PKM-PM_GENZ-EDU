@@ -77,7 +77,18 @@
                     </ul>
                     <form action="" method="POST" enctype="multipart/form-data">
                       @csrf
-                      <input class="form-control" type="file" accept="image/*, video/*" capture="user" name="photo"/>
+                      <input 
+                        class="form-control @error('photo') is-invalid @enderror" 
+                        type="file" 
+                        accept="image/*, video/*" 
+                        capture="user" 
+                        name="photo"
+                      />
+                      @error('photo')
+                        <div class="invalid-feedback">
+                          {{$message}}
+                        </div>
+                      @enderror
                       <br>
                       <button class="btn btn-warning btn-block">Absen</button>
                     </form>

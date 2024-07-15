@@ -32,7 +32,12 @@
                   </div>
                   <div class="d-flex align-items-center">
                     @if (auth()->guard("teacher")->user())
-                    <form action="{{ route('spaces.destroy', $space->id) }}" method="POST" class="mr-1">
+                    <form 
+                      action="{{ route('spaces.destroy', $space->id) }}" 
+                      method="POST" 
+                      class="mr-1" 
+                      onsubmit="return confirm('Yakin ingin menghapus?')"
+                    >
                       @csrf
                       @method("DELETE")
                       <button type="submit" class="btn btn-danger">

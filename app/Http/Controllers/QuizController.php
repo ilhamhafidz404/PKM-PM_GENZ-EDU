@@ -61,6 +61,13 @@ class QuizController extends Controller
     }
 
     public function store(Request $request){
+
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+        ]);
+
         Quiz::create([
             "title" => $request->title,
             "slug" => Str::slug($request->title),
@@ -68,6 +75,7 @@ class QuizController extends Controller
             "category" => $request->category
         ]);
 
+        toast('Membuat Quiz Berhasil','success');
         return redirect()->route("quizzes.index");
     }
 }

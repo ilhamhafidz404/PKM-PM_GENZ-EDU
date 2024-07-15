@@ -134,7 +134,7 @@
                 <form action="{{ route("evaluations.store") }}" method="POST">
                   @csrf
                   <input type="text" name="user_id" value="{{ $user_id }}" hidden>
-                  <div class="d-flex align-items-center">
+                  <div class="d-flex align-items-center" style="gap: 20px">
                     <div style="width: 70%">
                       <h5>Religius</h5>
                       <p>
@@ -144,11 +144,21 @@
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
                       <br>
-                      <input type="text" name="religius">
+                      <input 
+                        type="text" 
+                        name="religius" 
+                        value="{{old('religius')}}" 
+                        class="form-control @error('religius') is-invalid @enderror"
+                      >
+                      @error('religius')
+                        <div class="invalid-feedback">
+                          {{$message}}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                   <hr>
-                  <div class="d-flex align-items-center">
+                  <div class="d-flex align-items-center" style="gap: 20px">
                     <div style="width: 70%">
                       <h5>Nasionalis</h5>
                       <p> 
@@ -158,11 +168,21 @@
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
                       <br>
-                      <input type="text" name="nasionalis">
+                      <input 
+                        type="text" 
+                        name="nasionalis" 
+                        value="{{old('nasionalis')}}" 
+                        class="form-control @error('nasionalis') is-invalid @enderror"
+                      >
+                      @error('nasionalis')
+                        <div class="invalid-feedback">
+                          {{$message}}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                   <hr>
-                  <div class="d-flex align-items-center">
+                  <div class="d-flex align-items-center" style="gap: 20px">
                     <div style="width: 70%">
                       <h5>Gotong Royong</h5>
                       <p>
@@ -172,11 +192,21 @@
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
                       <br>
-                      <input type="text" name="gotong_royong">
+                      <input 
+                        type="text" 
+                        name="gotong_royong"
+                        value="{{old('gotong_royong')}}" 
+                        class="form-control @error('gotong_royong') is-invalid @enderror"
+                      >
+                      @error('gotong_royong')
+                        <div class="invalid-feedback">
+                          {{$message}}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                   <hr>
-                  <div class="d-flex align-items-center">
+                  <div class="d-flex align-items-center" style="gap: 20px">
                     <div style="width: 70%">
                       <h5>Mandiri</h5>
                       <p>
@@ -186,10 +216,21 @@
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
                       <br>
-                      <input type="text" name="mandiri">
+                      <input 
+                        type="text" 
+                        name="mandiri"
+                        value="{{old('mandiri')}}" 
+                        class="form-control @error('mandiri') is-invalid @enderror"
+                      >
+                      @error('mandiri')
+                        <div class="invalid-feedback">
+                          {{$message}}
+                        </div>
+                      @enderror
                     </div>
                   </div>
-                  <div class="d-flex align-items-center">
+                  <hr>
+                  <div class="d-flex align-items-center" style="gap: 20px">
                     <div style="width: 70%">
                       <h5>Integritas</h5>
                       <p>
@@ -199,13 +240,32 @@
                     <div style="width: 30%; text-align: center">
                       <small>Skor </small>
                       <br>
-                      <input type="text" name="integritas">
+                      <input 
+                        type="text" 
+                        name="integritas"
+                        value="{{old('integritas')}}" 
+                        class="form-control @error('integritas') is-invalid @enderror"
+                      >
+                      @error('integritas')
+                        <div class="invalid-feedback">
+                          {{$message}}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                   <hr>
                   <div>
                     <h5>Catatan Guru</h5>
-                    <textarea name="message" class="form-control" style="height: 200px !important"></textarea>
+                    <textarea 
+                      name="message" 
+                      class="form-control @error('message') is-invalid @enderror" 
+                      style="height: 200px !important"
+                    ></textarea>
+                    @error('message')
+                      <div class="invalid-feedback">
+                        {{$message}}
+                      </div>
+                    @enderror
                   </div>
                   <div class="text-right mt-3">
                     <button class="btn btn-warning">Submit</button>

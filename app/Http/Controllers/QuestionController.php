@@ -29,6 +29,14 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request, [
+            'answers' => 'required',
+            'a' => 'required',
+            'b' => 'required',
+            'c' => 'required',
+            'quiz_id' => 'required',
+        ]);
+
         for ($i=0; $i < count($request->answers); $i++) { 
 
             if (isset($request->answers[$i])) {
@@ -66,6 +74,7 @@ class QuestionController extends Controller
             ]);
         }
 
+        toast('Membuat Soal Berhasil','success');
         return redirect()->back();
     }
 

@@ -36,7 +36,7 @@
                     </button>
                     <hr>
                     <p class="text-center">
-                      <a href="{{route('login')}}">Kembali</a>
+                      <a href="{{route('login')}}" class="text-warning">Kembali</a>
                     </p>
                   </div>
                 </form>

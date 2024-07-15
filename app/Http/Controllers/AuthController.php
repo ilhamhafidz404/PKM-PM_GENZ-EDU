@@ -14,7 +14,7 @@ class AuthController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect()->route('spaces.index');
+            return redirect()->route('absent.index');
         }
 
         return view("auth.login");
@@ -28,7 +28,7 @@ class AuthController extends Controller
             Auth::login($user);
 
             toast('Login Berhasil','success');
-            return redirect()->route('spaces.index');
+            return redirect()->route('absent.index');
         }
 
         Alert::error('Gagal Login', 'Data yang anda masukkan salah!');
@@ -56,7 +56,7 @@ class AuthController extends Controller
             auth()->guard("teacher")->login($teacher);
 
             toast('Login Berhasil','success');
-            return redirect()->route('spaces.index');
+            return redirect()->route('users.index');
         }
 
         Alert::error('Gagal Login', 'Data yang anda masukkan salah!');
@@ -72,7 +72,6 @@ class AuthController extends Controller
     {
         $parent = Parents::where("email", "=", $request->email)->first();
 
-        
         if ($parent && Hash::check($request->password, $parent->password)) {
             auth()->guard("parent")->login($parent);
 

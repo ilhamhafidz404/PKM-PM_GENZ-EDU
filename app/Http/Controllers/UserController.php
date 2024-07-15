@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::all();
+        $users = User::orderBy("id", "DESC")->get();
 
         return view('user.index', [
             "users" => $users
@@ -27,6 +27,14 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'student' => 'required',
+            'nisn' => 'required',
+            'password' => 'required',
+            'profile' => 'required',
+            'parent' => 'required',
+        ]);
+
         $user = User::create([
             "name" => $request->student,
             "nisn" => $request->nisn,
@@ -42,6 +50,7 @@ class UserController extends Controller
             "user_id" => $user->id
         ]);
 
+        toast('Menambah User Berhasil','success');
         return redirect()->route("users.index");
     }
 
