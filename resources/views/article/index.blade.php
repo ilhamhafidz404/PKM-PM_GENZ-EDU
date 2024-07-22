@@ -19,7 +19,7 @@
           </div>
         </section>
 
-        @foreach ($articles as $article)
+        @forelse ($articles as $article)
           <div class="card">
             <div class="card-body d-flex" style="gap: 20px; align-items: center">
               <div style="width: 25%">
@@ -37,7 +37,18 @@
               </div>
             </div>
           </div>
-        @endforeach
+        @empty
+          <div class="card">
+            <div class="card-body">
+              <div class="empty-state" data-height="400">
+                <div class="empty-state-icon bg-warning">
+                  <i class="fas fa-question"></i>
+                </div>
+                <h2>Belum Ada Artikel</h2>
+              </div>
+            </div>
+          </div>
+        @endforelse
 
       </div>
       @include("components.footer")

@@ -14,9 +14,9 @@ class QuestionSeeder extends Seeder
     public function run(): void
     {
         Question::create([
-            "question" => "Apa itu nasionalis",
-            "a" => "s",
-            "b" => "fes",
+            "question" => "Apa yang dimaksud dengan nilai religius ",
+            "a" => "Kejujuran dalam berbagi situasi",
+            "b" => "Kepatuhan terhadap",
             "c" => "fewws",
             "d" => "wws",
             "answer" => "s",

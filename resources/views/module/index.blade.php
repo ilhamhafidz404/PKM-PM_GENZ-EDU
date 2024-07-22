@@ -40,7 +40,16 @@
                       </div>
                     </li>
                   @empty
-                    <p>Module Kosong</p>
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="empty-state" data-height="400">
+                          <div class="empty-state-icon bg-warning">
+                            <i class="fas fa-question"></i>
+                          </div>
+                          <h2>Belum Ada Modul Ajar</h2>
+                        </div>
+                      </div>
+                    </div>
                   @endforelse
                 </ul>
               </div>

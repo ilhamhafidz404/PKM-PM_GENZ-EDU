@@ -14,9 +14,22 @@
           </div>
           <div class="section-body">
             @if (auth()->guard("teacher")->user())
+            <form action="" method="GET" class="mb-5">
+              <div class="d-flex col-4" style="gap: 20px; align-items: center">
+                @if (isset($_GET["filterDate"]))
+                  <p class="mb-0" style="white-space: nowrap">{{ $_GET["filterDate"] }}</p>
+                @endif
+                <input type="date" class="form-control" name="filterDate">
+                <div class="d-flex" style="gap: 5px">
+                  <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
+                  <button class="btn btn-warning">Filter</button> 
+                </div>
+              </div>
+            </form>
               <table class="table table-striped">
                 <tr>
                   <th>Foto Absen</th>
+                  <th>Tanggal</th>
                   <th>Nama Siswa</th>
                   <th>Status</th>
                 </tr>
@@ -24,8 +37,11 @@
                   <tr>
                     <td>
                       <div class="my-2">
-                        <img alt="photo tidak ada" src={{ asset("storage/".$absent->photo) }} width="100">
+                        <img alt="photo tidak ada" src={{ asset("storage/".$absent->photo) }} style="width: 100px; height: 100px; border-radius: 10px; object-fit:cover" />
                       </div>
+                    </td>
+                    <td>
+                      {{ $absent->created_at->translatedFormat('d F Y') }}
                     </td>
                     <td>{{ $absent->user->name }}</td>
                     <td>
@@ -38,7 +54,7 @@
                   </tr>
                 @empty
                   <tr>
-                    <td colspan="5">Data Siswa Kosong</td>
+                    <td colspan="5">Data Absen Kosong</td>
                   </tr>
                 @endforelse
               </table>
@@ -65,8 +81,15 @@
                 </div>
               @else
                 @if ($now->greaterThan($eightAM))
-                  <div class="card p-3">
-                    <h5>Kamu telat</h5>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="empty-state" data-height="400">
+                        <div class="empty-state-icon bg-danger">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <h2>Kamu Telat Absen</h2>
+                      </div>
+                    </div>
                   </div>
                 @else    
                   <div class="card p-3">
