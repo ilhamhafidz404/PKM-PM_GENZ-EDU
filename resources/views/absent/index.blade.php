@@ -14,18 +14,25 @@
           </div>
           <div class="section-body">
             @if (auth()->guard("teacher")->user())
-            <form action="" method="GET" class="mb-5">
-              <div class="d-flex col-4" style="gap: 20px; align-items: center">
-                @if (isset($_GET["filterDate"]))
-                  <p class="mb-0" style="white-space: nowrap">{{ $_GET["filterDate"] }}</p>
-                @endif
-                <input type="date" class="form-control" name="filterDate">
-                <div class="d-flex" style="gap: 5px">
-                  <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
-                  <button class="btn btn-warning">Filter</button> 
+              <div class="row">
+                <div class="col-11">
+                  <form action="" method="GET" class="mb-5">
+                    <div class="d-flex col-4" style="gap: 20px; align-items: center">
+                      @if (isset($_GET["filterDate"]))
+                        <p class="mb-0" style="white-space: nowrap">{{ Carbon\Carbon::parse($_GET["filterDate"])->format('d F Y') }}</p>
+                      @endif
+                      <input type="date" class="form-control" name="filterDate">
+                      <div class="d-flex" style="gap: 5px">
+                        <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
+                        <button class="btn btn-warning">Filter</button> 
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-1">
+                  <a href="{{ route('absent.export') }}" class="btn btn-success">Export</a>
                 </div>
               </div>
-            </form>
               <table class="table table-striped">
                 <tr>
                   <th>Foto Absen</th>
@@ -37,7 +44,13 @@
                   <tr>
                     <td>
                       <div class="my-2">
-                        <img alt="photo tidak ada" src={{ asset("storage/".$absent->photo) }} style="width: 100px; height: 100px; border-radius: 10px; object-fit:cover" />
+                        <a href="{{ asset("storage/".$absent->photo) }}" target="_blank">
+                          <img 
+                            alt="photo tidak ada" 
+                            src={{ asset("storage/".$absent->photo) }} 
+                            style="width: 100px; height: 100px; border-radius: 10px; object-fit:cover" 
+                          />
+                        </a>
                       </div>
                     </td>
                     <td>

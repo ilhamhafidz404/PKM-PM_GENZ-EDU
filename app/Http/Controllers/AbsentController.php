@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AbsentExport;
 use App\Models\Absent;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AbsentController extends Controller
 {
@@ -68,5 +70,10 @@ class AbsentController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function export() 
+    {
+        return Excel::download(new AbsentExport, 'absents.xlsx');
     }
 }

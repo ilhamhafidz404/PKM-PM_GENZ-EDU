@@ -27,6 +27,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['auth'])->get('/absent/export', [AbsentController::class, 'export'])->name("absent.export");
 
 Route::middleware(['auth'])->resource('/spaces', SpaceController::class);
 Route::middleware(['auth'])->resource('/users', UserController::class);
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->resource('/quizzes', QuizController::class);
 Route::middleware(['auth'])->resource('/evaluations', EvaluationController::class);
 Route::middleware(['auth'])->resource('/questions', QuestionController::class);
 Route::middleware(['auth'])->resource('/answers', AnswerController::class);
+
 
 Route::get("/auth/login", [AuthController::class, 'login'])->name("login");
 Route::post("/auth/login", [AuthController::class, 'validation'])->name("login-validation");
