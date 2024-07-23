@@ -21,6 +21,14 @@
                       @if (isset($_GET["filterDate"]))
                         <p class="mb-0" style="white-space: nowrap">{{ Carbon\Carbon::parse($_GET["filterDate"])->format('d F Y') }}</p>
                       @endif
+                      {{-- <select name="filterClass" id="" class="form-control">
+                        <option value="" selected hidden>Pilih Kelas</option>
+                        @forelse ($classrooms as $classroom)
+                            <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                        @empty
+                            <option value="">Tidak ada data kelas</option>
+                        @endforelse
+                      </select> --}}
                       <input type="date" class="form-control" name="filterDate">
                       <div class="d-flex" style="gap: 5px">
                         <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
@@ -38,6 +46,7 @@
                   <th>Foto Absen</th>
                   <th>Tanggal</th>
                   <th>Nama Siswa</th>
+                  <th>Kelas</th>
                   <th>Status</th>
                 </tr>
                 @forelse ($absents as $absent)
@@ -57,6 +66,7 @@
                       {{ $absent->created_at->translatedFormat('d F Y') }}
                     </td>
                     <td>{{ $absent->user->name }}</td>
+                    <td>{{ $absent->user->classroom->name }}</td>
                     <td>
                       @if ($absent->status == "late")
                         <span class="badge badge-danger">Terlambat</span>

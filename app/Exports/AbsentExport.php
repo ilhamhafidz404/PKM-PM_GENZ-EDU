@@ -1,21 +1,22 @@
 <?php
-
 namespace App\Exports;
 
 use App\Models\Absent;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\AfterSheet;
 
-class AbsentExport implements FromCollection, WithHeadings
+class AbsentExport implements FromCollection, WithHeadings, WithEvents
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         // Ambil semua pengguna
-        $users = User::all();
+        $users = User::with("classroom")->get();
         
         // Array untuk menyimpan jumlah kehadiran masing-masing siswa
         $attendanceCounts = [];
@@ -41,8 +42,9 @@ class AbsentExport implements FromCollection, WithHeadings
 
             // Tambahkan data ke hasil akhir
             $results[] = [
-                'name' => $user->name,
                 'nisn' => $user->nisn,
+                'name' => $user->name,
+                'classroom' => $user->classroom->name,
                 'attendance' => round($attendancePercentage, 2) . '%',
             ];
         }
@@ -54,9 +56,24 @@ class AbsentExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'Name',
             'NISN',
+            'Nama',
+            'Kelas',
             'Kehadiran',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class => function(AfterSheet $event) {
+                $event->sheet->getDelegate()->setAutoFilter(
+                    $event->sheet->getDelegate()->calculateWorksheetDimension()
+                );
+            },
         ];
     }
 }

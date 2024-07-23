@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classroom;
 use App\Models\Parents;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,17 +13,26 @@ class UserController extends Controller
 {
     public function index()
     {
-
-        $users = User::orderBy("id", "DESC")->get();
+        if(!isset($_GET["classroom"])){
+            $users = User::orderBy("id", "DESC")->get();
+        } else{
+            $users = User::where("classroom_id", $_GET["classroom"])->orderBy("id", "DESC")->get();
+        }
+        
+        $classrooms = Classroom::orderBy('name', "DESC")->get();
 
         return view('user.index', [
-            "users" => $users
+            "users" => $users,
+            "classrooms" => $classrooms,
         ]);
     }
 
     public function create()
     {
-        return view('user.create');
+        $classrooms = Classroom::orderBy('name', "DESC")->get();
+        return view('user.create',[
+            "classrooms" => $classrooms
+        ]);
     }
 
     public function store(Request $request)
@@ -33,6 +43,7 @@ class UserController extends Controller
             'password' => 'required',
             'profile' => 'required',
             'parent' => 'required',
+            'classroom' => 'required',
         ]);
 
         $user = User::create([
@@ -40,6 +51,7 @@ class UserController extends Controller
             "nisn" => $request->nisn,
             "password" => Hash::make($request->password),
             "profile" => "test.jpg",
+            "classroom_id" => $request->classroom
         ]);
 
         Parents::create([

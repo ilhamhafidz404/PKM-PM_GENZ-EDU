@@ -19,12 +19,14 @@ class UserSeeder extends Seeder
                 "nisn" => "20220810052",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("password"),
+                "classroom_id" => 1
             ],
             [
                 "name" => "Gyan Fadli",
                 "nisn" => "20220850098",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("password"),
+                "classroom_id" => 2
             ],
         ]);
     }

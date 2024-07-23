@@ -16,6 +16,23 @@
             </a>
           </div>
 
+          <form action="" method="GET">
+            <div class="d-flex col-4 mb-3" style="gap: 10px">
+              <select class="form-control" name="classroom" id="">
+                <option value="" hidden selected>Pilih Kelas</option>
+                @forelse ($classrooms as $classroom)
+                  <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                @empty
+                  <option value="">Tidak ada kelas</option>
+                @endforelse 
+              </select>
+              <div class="d-flex" style="gap: 5px">
+                <button class="btn btn-warning" type="submit">Filter</button>
+                <a href="{{ route('users.index') }}" class="btn btn-danger">Reset</a>
+              </div>
+            </div>
+          </form>
+
           <div class="card">
             <div class="card-body p-0">
               <div class="table-responsive">
@@ -25,6 +42,7 @@
                     <th>NISN</th>
                     <th>Nama Siswa</th>
                     <th>Orang Tua / Wali</th>
+                    <th>Kelas</th>
                     <th>Action</th>
                   </tr>
                   @forelse ($users as $user)
@@ -35,6 +53,7 @@
                       <td>{{ $user->nisn }}</td>
                       <td>{{ $user->name }}</td>
                       <td>{{ "-" }}</td>
+                      <td>{{ $user->classroom->name }}</td>
                       <td>
                         <button class="btn btn-warning"  data-toggle="modal" data-target="#detailStudent{{ $user->id }}">Detail</button>
                       </td>

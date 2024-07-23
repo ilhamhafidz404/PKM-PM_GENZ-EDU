@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\AbsentExport;
 use App\Models\Absent;
+use App\Models\Classroom;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,11 +46,14 @@ class AbsentController extends Controller
             $checkTodayAbsent = Absent::whereDate('created_at', date('Y-m-d'))->whereUserId(Auth::user()->id)->first();
         }
 
+        $classrooms = Classroom::orderBy('name', "DESC")->get();
+
         return view("absent.index", [
             "absents" => $absents,
             "now" => $now,
             "eightAM" => $eightAM,
-            "checkTodayAbsent" => $checkTodayAbsent
+            "checkTodayAbsent" => $checkTodayAbsent,
+            "classrooms" => $classrooms
         ]);
     }
 
