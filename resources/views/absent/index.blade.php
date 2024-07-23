@@ -17,25 +17,26 @@
               <div class="row">
                 <div class="col-11">
                   <form action="" method="GET" class="mb-5">
-                    <div class="d-flex col-4" style="gap: 20px; align-items: center">
-                      @if (isset($_GET["filterDate"]))
-                        <p class="mb-0" style="white-space: nowrap">{{ Carbon\Carbon::parse($_GET["filterDate"])->format('d F Y') }}</p>
-                      @endif
-                      {{-- <select name="filterClass" id="" class="form-control">
+                    <div class="d-flex col-6" style="gap: 20px; align-items: center">
+                      <select name="filterClass" class="form-control">
                         <option value="" selected hidden>Pilih Kelas</option>
-                        @forelse ($classrooms as $classroom)
-                            <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
-                        @empty
-                            <option value="">Tidak ada data kelas</option>
-                        @endforelse
-                      </select> --}}
-                      <input type="date" class="form-control" name="filterDate">
+                        @foreach ($classrooms as $classroom)
+                          <option value="{{ $classroom->id }}" 
+                            {{ isset($_GET['filterClass']) && $classroom->id == $_GET['filterClass'] ? 'selected' : '' }}>
+                            {{ $classroom->name }}
+                          </option>
+                        @endforeach
+                        @if ($classrooms->isEmpty())
+                          <option value="">Tidak ada data kelas</option>
+                        @endif
+                      </select>
+                      <input type="date" class="form-control" name="filterDate" value="{{ $_GET['filterDate'] ?? '' }}">
                       <div class="d-flex" style="gap: 5px">
                         <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
                         <button class="btn btn-warning">Filter</button> 
                       </div>
                     </div>
-                  </form>
+                  </form>                  
                 </div>
                 <div class="col-1">
                   <a href="{{ route('absent.export') }}" class="btn btn-success">Export</a>
@@ -121,9 +122,17 @@
                     <ul class="ml-0 pl-4">
                       <li>Silahkan mengisi kehadiran hari ini!</li>
                       <li>Kehadiran diisi sebelum pukul 8 pagi</li>
-                      <li>Silahkan upload foto mu di lingkungan sekolah di bawah ini (jika absensi hadir)!</li>
-                      <li>Silahkan upload foto keterangan dokter! (jika absensi sakit)</li>
-                      <li>Silahkan upload foto kegitan! (jika absensi izin)</li>
+                      <li>
+                        Silahkan upload foto mu di lingkungan sekolah di bawah ini (jika absensi hadir)! 
+                        <a href="{{ asset("imgExample/hadir.jpg") }}" target="_blank" class="text-warning">lihat contoh foto</a>
+                      </li>
+                      <li>
+                        Silahkan upload foto keterangan dokter! (jika absensi sakit)
+                        <a href="{{ asset("imgExample/sakit.webp") }}" target="_blank"  class="text-warning">lihat contoh foto</a>
+                      </li>
+                      <li>
+                        Silahkan upload foto kegitan! (jika absensi izin)
+                      </li>
                     </ul>
                     <form action="" method="POST" enctype="multipart/form-data">
                       @csrf

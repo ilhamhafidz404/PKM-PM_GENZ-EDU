@@ -15,47 +15,32 @@ class AbsentController extends Controller
 {
     public function index()
     {
-        if(isset($_GET["filterDate"])){
-            $carbonDate = Carbon::parse($_GET["filterDate"]);
-            
-            $absents = Absent::whereYear('created_at', $carbonDate->year)
-            ->whereMonth('created_at', $carbonDate->month)
-            ->whereDay('created_at', $carbonDate->day)
-            ->with("user")
-            ->latest()
-            ->get();
-        } else{
-            $carbonDate = Carbon::parse(now());
+        $carbonDate = Carbon::parse($_GET["filterDate"] ?? now());
 
-            $absents = Absent::whereYear('created_at', $carbonDate->year)
-                ->whereMonth('created_at', $carbonDate->month)
-                ->whereDay('created_at', $carbonDate->day)
-                ->with("user")
-                ->latest()
-                ->get();
+        $absentsQuery = Absent::whereDate('created_at', $carbonDate)->with("user");
+
+        if (isset($_GET["filterClass"]) && $_GET["filterClass"] !== "") {
+            $classroomId = $_GET["filterClass"];
+            $absentsQuery->whereHas('user', fn($query) => $query->where('classroom_id', $classroomId));
         }
+
+        $absents = $absentsQuery->latest()->get();
+
         $now = Carbon::now('Asia/Jakarta');
         $eightAM = Carbon::today('Asia/Jakarta')->setTime(20, 0, 0);
 
+        $user = auth()->guard("teacher")->user() ? null : 
+                (auth()->guard("parent")->user() 
+                ? auth()->guard("parent")->user()->user_id 
+                : Auth::user()->id);
 
-        if (auth()->guard("teacher")->user()) {
-            $checkTodayAbsent = "";
-        } else if (auth()->guard("parent")->user()) {
-            $checkTodayAbsent = Absent::whereDate('created_at', date('Y-m-d'))->whereUserId(auth()->guard("parent")->user()->user_id)->first();
-        } else {
-            $checkTodayAbsent = Absent::whereDate('created_at', date('Y-m-d'))->whereUserId(Auth::user()->id)->first();
-        }
+        $checkTodayAbsent = $user ? Absent::whereDate('created_at', today())->whereUserId($user)->first() : "";
 
         $classrooms = Classroom::orderBy('name', "DESC")->get();
 
-        return view("absent.index", [
-            "absents" => $absents,
-            "now" => $now,
-            "eightAM" => $eightAM,
-            "checkTodayAbsent" => $checkTodayAbsent,
-            "classrooms" => $classrooms
-        ]);
+        return view("absent.index", compact('absents', 'now', 'eightAM', 'checkTodayAbsent', 'classrooms'));
     }
+
 
     public function store(Request $request)
     {

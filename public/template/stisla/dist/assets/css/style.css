@@ -3696,7 +3696,7 @@ body.layout-3 .main-footer {
     background-color: #fcfcfd;
 }
 .main-sidebar .sidebar-menu li.active a {
-    color: #6777ef;
+    color: #ffa426 !important;
     font-weight: 600;
     background-color: #fcfcfd;
 }
