@@ -70,7 +70,7 @@ class AbsentController extends Controller
         Absent::create([
             "user_id" => Auth::user()->id,
             "photo" => $path,
-            "status" => "on time",
+            "status" => $request->submit,
         ]);
 
         return redirect()->back();

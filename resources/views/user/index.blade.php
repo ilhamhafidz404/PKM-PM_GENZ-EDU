@@ -21,7 +21,11 @@
               <select class="form-control" name="classroom" id="">
                 <option value="" hidden selected>Pilih Kelas</option>
                 @forelse ($classrooms as $classroom)
-                  <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                  @if (isset($_GET["classroom"]) && $classroom->id == $_GET["classroom"])  
+                    <option value="{{ $classroom->id }}" selected>{{ $classroom->name }}</option>
+                  @else
+                    <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                  @endif
                 @empty
                   <option value="">Tidak ada kelas</option>
                 @endforelse 
@@ -41,7 +45,6 @@
                     <th></th>
                     <th>NISN</th>
                     <th>Nama Siswa</th>
-                    <th>Orang Tua / Wali</th>
                     <th>Kelas</th>
                     <th>Action</th>
                   </tr>
@@ -52,7 +55,6 @@
                       </td>
                       <td>{{ $user->nisn }}</td>
                       <td>{{ $user->name }}</td>
-                      <td>{{ "-" }}</td>
                       <td>{{ $user->classroom->name }}</td>
                       <td>
                         <button class="btn btn-warning"  data-toggle="modal" data-target="#detailStudent{{ $user->id }}">Detail</button>

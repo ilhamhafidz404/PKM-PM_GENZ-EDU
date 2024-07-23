@@ -14,9 +14,9 @@ class UserController extends Controller
     public function index()
     {
         if(!isset($_GET["classroom"])){
-            $users = User::orderBy("id", "DESC")->get();
+            $users = User::orderBy("classroom_id", "DESC")->orderBy("name", "ASC")->get();
         } else{
-            $users = User::where("classroom_id", $_GET["classroom"])->orderBy("id", "DESC")->get();
+            $users = User::where("classroom_id", $_GET["classroom"])->orderBy("name", "ASC")->get();
         }
         
         $classrooms = Classroom::orderBy('name', "DESC")->get();

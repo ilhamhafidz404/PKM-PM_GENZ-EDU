@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text("photo");
             $table->foreignId("user_id");
-            $table->enum("status", ["late", "on time"]);
+            $table->enum("status", ["hadir", "sakit", "izin"]);
             $table->timestamps();
         });
     }

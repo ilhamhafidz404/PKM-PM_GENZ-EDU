@@ -48,7 +48,7 @@ class TeacherSeeder extends Seeder
                 "name" => "Eli Yuliati",
                 "username" => "eliyuliati21",
                 "email" => "eliyuliati21@gmail.com",
-                "password" => bcrypt("eliyuliatil")
+                "password" => bcrypt("eliyuliati1.")
             ],
             [
                 "name" => "Etik Rohmatika",

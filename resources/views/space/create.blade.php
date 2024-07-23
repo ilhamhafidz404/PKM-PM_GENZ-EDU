@@ -28,6 +28,7 @@
                       name="title" 
                       id="title" 
                       value="{{old('title')}}"
+                      placeholder="contoh: Tugas Membuat Puisi : Judul 'Puisi Untuk Ibu'"
                     >
                     @error('title')
                       <div class="invalid-feedback">
@@ -41,6 +42,7 @@
                       class="form-control @error('description') is-invalid @enderror" 
                       name="description" 
                       id="description" 
+                      placeholder="contoh: Puisi ini saya persembahkan untuk Ibu tersayang, oleh Kelompok 2: Ilham Hafidz, Gyan Fadli, Epa Noviana & Azka"
                     >{{old('description')}}</textarea>
                     @error('description')
                       <div class="invalid-feedback">

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Exports;
 
 use App\Models\Absent;
@@ -21,21 +22,31 @@ class AbsentExport implements FromCollection, WithHeadings, WithEvents
         // Array untuk menyimpan jumlah kehadiran masing-masing siswa
         $attendanceCounts = [];
 
-        // Hitung jumlah kehadiran untuk setiap pengguna
+        // Hitung jumlah kehadiran, izin, dan sakit untuk setiap pengguna
         foreach ($users as $user) {
-            $attendanceCount = Absent::where('user_id', $user->id)->count();
-            $attendanceCounts[$user->id] = $attendanceCount;
+            $attendanceCount = Absent::where('user_id', $user->id)->where("status", "hadir")->count();
+            $izinCount = Absent::where('user_id', $user->id)->where("status", "izin")->count();
+            $sakitCount = Absent::where('user_id', $user->id)->where("status", "sakit")->count();
+            
+            $attendanceCounts[$user->id] = [
+                'attendance' => $attendanceCount,
+                'izin' => $izinCount,
+                'sakit' => $sakitCount,
+            ];
         }
 
         // Temukan jumlah kehadiran terbanyak
-        $maxAttendance = max($attendanceCounts);
+        $maxAttendance = max(array_column($attendanceCounts, 'attendance'));
 
         // Array untuk menyimpan hasil akhir
         $results = [];
 
         foreach ($users as $user) {
             // Jumlah kehadiran untuk pengguna ini
-            $attendanceCount = $attendanceCounts[$user->id];
+            $attendanceData = $attendanceCounts[$user->id];
+            $attendanceCount = $attendanceData['attendance'];
+            $izinCount = $attendanceData['izin'];
+            $sakitCount = $attendanceData['sakit'];
 
             // Hitung persentase kehadiran berdasarkan jumlah kehadiran terbanyak
             $attendancePercentage = ($attendanceCount / $maxAttendance) * 100;
@@ -46,6 +57,8 @@ class AbsentExport implements FromCollection, WithHeadings, WithEvents
                 'name' => $user->name,
                 'classroom' => $user->classroom->name,
                 'attendance' => round($attendancePercentage, 2) . '%',
+                'izin' => $izinCount,
+                'sakit' => $sakitCount,
             ];
         }
 
@@ -60,6 +73,8 @@ class AbsentExport implements FromCollection, WithHeadings, WithEvents
             'Nama',
             'Kelas',
             'Kehadiran',
+            'Izin',
+            'Sakit',
         ];
     }
 
@@ -77,3 +92,4 @@ class AbsentExport implements FromCollection, WithHeadings, WithEvents
         ];
     }
 }
+

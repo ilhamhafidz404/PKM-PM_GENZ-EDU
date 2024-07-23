@@ -68,10 +68,12 @@
                     <td>{{ $absent->user->name }}</td>
                     <td>{{ $absent->user->classroom->name }}</td>
                     <td>
-                      @if ($absent->status == "late")
-                        <span class="badge badge-danger">Terlambat</span>
+                      @if ($absent->status == "hadir")
+                        <span class="badge badge-success">Hadir</span>
+                      @elseif ($absent->status == "sakit")
+                        <span class="badge badge-danger">Sakit</span>
                       @else
-                        <span class="badge badge-success">Tepat Waktu</span>
+                        <span class="badge badge-secondary">Izin</span>
                       @endif
                     </td>
                   </tr>
@@ -100,7 +102,7 @@
             @else
               @if ($checkTodayAbsent)
                 <div class="card p-3">
-                  <h5>Kamu sudah absen</h5>
+                  <h5>Yeay, kamu sudah presensi di hari ini</h5>
                 </div>
               @else
                 @if ($now->greaterThan($eightAM))
@@ -110,16 +112,18 @@
                         <div class="empty-state-icon bg-danger">
                           <i class="fas fa-times"></i>
                         </div>
-                        <h2>Kamu Telat Absen</h2>
+                        <h2>Yaaah, absen kamu telat, selanjutnya jangan lupa untuk absen ya</h2>
                       </div>
                     </div>
                   </div>
                 @else    
                   <div class="card p-3">
-                    <ul>
-                      <li>Kamu belum absen hari ini!</li>
-                      <li>Diharapkan absen tepat waktu sebelum pukul 8 pagi</li>
-                      <li>Lakukan foto</li>
+                    <ul class="ml-0 pl-4">
+                      <li>Silahkan mengisi kehadiran hari ini!</li>
+                      <li>Kehadiran diisi sebelum pukul 8 pagi</li>
+                      <li>Silahkan upload foto mu di lingkungan sekolah di bawah ini (jika absensi hadir)!</li>
+                      <li>Silahkan upload foto keterangan dokter! (jika absensi sakit)</li>
+                      <li>Silahkan upload foto kegitan! (jika absensi izin)</li>
                     </ul>
                     <form action="" method="POST" enctype="multipart/form-data">
                       @csrf
@@ -136,7 +140,9 @@
                         </div>
                       @enderror
                       <br>
-                      <button class="btn btn-warning btn-block">Absen</button>
+                      <button name="submit" value="hadir" class="btn btn-warning btn-block">Hadir</button>
+                      <button name="submit" value="izin" class="btn btn-secondary btn-block">Izin</button>
+                      <button name="submit" value="sakit" class="btn btn-danger btn-block">Sakit</button>
                     </form>
                   </div>
                 @endif

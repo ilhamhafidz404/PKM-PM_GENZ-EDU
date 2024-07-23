@@ -22,6 +22,7 @@
                       <th></th>
                       <th>NISN</th>
                       <th>Nama Siswa</th>
+                      <th>Kelas</th>
                       <th>Action</th>
                     </tr>
                     @forelse ($users as $user)
@@ -31,6 +32,7 @@
                         </td>
                         <td>{{ $user->nisn }}</td>
                         <td>{{ $user->name }}</td>
+                        <td>{{ $user->classroom->name }}</td>
                         <td>
                           <a class="btn btn-warning" href="{{ route("evaluations.show", $user->id) }}">Evaluasi</a>
                         </td>
