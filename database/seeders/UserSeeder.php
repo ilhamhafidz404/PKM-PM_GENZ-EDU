@@ -348,7 +348,115 @@ class UserSeeder extends Seeder
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
-            ]
+            ],
+
+            //
+            
+            [
+                "name" => "Ahmad Ibnu Sabani",
+                "nisn" => "0113834449",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Abdul Patah Diningrat",
+                "nisn" => "3123115173",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Aditya Irwansyah",
+                "nisn" => "0113216181",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Demas Nurinra",
+                "nisn" => "3125133214",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Jirna Sri Maela",
+                "nisn" => "0105691359",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Muhammad Eka Zakira",
+                "nisn" => "0105691359",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Repan Budiman",
+                "nisn" => "24257001",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Ramadhan Rahmat Darmawan",
+                "nisn" => "171801017",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Sendi Adriyana",
+                "nisn" => "0124013609",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Tio Bugi",
+                "nisn" => "0127333928",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Teguh Adi Nugraha",
+                "nisn" => "0125013932",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Tita Fatimatuzzahra",
+                "nisn" => "0103899122",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Valelian Refin Saputra",
+                "nisn" => "0128551952",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Yulia Dwi Anugrah",
+                "nisn" => "0123321934",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
+            [
+                "name" => "Fadil Nur Fadilah",
+                "nisn" => "0116428768",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 4
+            ],
         ]);
     }
 }

@@ -17,8 +17,8 @@
               <div class="row">
                 <div class="col-11">
                   <form action="" method="GET" class="mb-5">
-                    <div class="d-flex col-6" style="gap: 20px; align-items: center">
-                      <select name="filterClass" class="form-control">
+                    <div class="d-md-flex col-md-6" style="gap: 20px; align-items: center">
+                      <select name="filterClass" class="form-control mb-md-0 mb-2">
                         <option value="" selected hidden>Pilih Kelas</option>
                         @foreach ($classrooms as $classroom)
                           <option value="{{ $classroom->id }}" 
@@ -30,7 +30,7 @@
                           <option value="">Tidak ada data kelas</option>
                         @endif
                       </select>
-                      <input type="date" class="form-control" name="filterDate" value="{{ $_GET['filterDate'] ?? '' }}">
+                      <input type="date" class="form-control mb-md-0 mb-2" name="filterDate" value="{{ $_GET['filterDate'] ?? '' }}">
                       <div class="d-flex" style="gap: 5px">
                         <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
                         <button class="btn btn-warning">Filter</button> 
@@ -38,52 +38,54 @@
                     </div>
                   </form>                  
                 </div>
-                <div class="col-1">
-                  <a href="{{ route('absent.export') }}" class="btn btn-success">Export</a>
+                <div class="col-md-1">
+                  <a href="{{ route('absent.export') }}" class="btn d-md-inline-block d-block mb-md-0 mb-3 btn-success">Export</a>
                 </div>
               </div>
-              <table class="table table-striped">
-                <tr>
-                  <th>Foto Absen</th>
-                  <th>Tanggal</th>
-                  <th>Nama Siswa</th>
-                  <th>Kelas</th>
-                  <th>Status</th>
-                </tr>
-                @forelse ($absents as $absent)
+              <div class="table-responsive">
+                <table class="table table-striped">
                   <tr>
-                    <td>
-                      <div class="my-2">
-                        <a href="{{ asset("storage/".$absent->photo) }}" target="_blank">
-                          <img 
-                            alt="photo tidak ada" 
-                            src={{ asset("storage/".$absent->photo) }} 
-                            style="width: 100px; height: 100px; border-radius: 10px; object-fit:cover" 
-                          />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      {{ $absent->created_at->translatedFormat('d F Y') }}
-                    </td>
-                    <td>{{ $absent->user->name }}</td>
-                    <td>{{ $absent->user->classroom->name }}</td>
-                    <td>
-                      @if ($absent->status == "hadir")
-                        <span class="badge badge-success">Hadir</span>
-                      @elseif ($absent->status == "sakit")
-                        <span class="badge badge-danger">Sakit</span>
-                      @else
-                        <span class="badge badge-secondary">Izin</span>
-                      @endif
-                    </td>
+                    <th>Foto Absen</th>
+                    <th>Tanggal</th>
+                    <th>Nama Siswa</th>
+                    <th>Kelas</th>
+                    <th>Status</th>
                   </tr>
-                @empty
-                  <tr>
-                    <td colspan="5">Data Absen Kosong</td>
-                  </tr>
-                @endforelse
-              </table>
+                  @forelse ($absents as $absent)
+                    <tr>
+                      <td>
+                        <div class="my-2">
+                          <a href="{{ asset("storage/".$absent->photo) }}" target="_blank">
+                            <img 
+                              alt="photo tidak ada" 
+                              src={{ asset("storage/".$absent->photo) }} 
+                              style="width: 100px; height: 100px; border-radius: 10px; object-fit:cover" 
+                            />
+                          </a>
+                        </div>
+                      </td>
+                      <td>
+                        {{ $absent->created_at->translatedFormat('d F Y') }}
+                      </td>
+                      <td>{{ $absent->user->name }}</td>
+                      <td>{{ $absent->user->classroom->name }}</td>
+                      <td>
+                        @if ($absent->status == "hadir")
+                          <span class="badge badge-success">Hadir</span>
+                        @elseif ($absent->status == "sakit")
+                          <span class="badge badge-danger">Sakit</span>
+                        @else
+                          <span class="badge badge-secondary">Izin</span>
+                        @endif
+                      </td>
+                    </tr>
+                  @empty
+                    <tr>
+                      <td colspan="5">Data Absen Kosong</td>
+                    </tr>
+                  @endforelse
+                </table>
+              </div>
             @elseif (auth()->guard("parent")->user())
               @if ($checkTodayAbsent)
                 <div class="card p-3">

@@ -17,7 +17,7 @@
           </div>
 
           <form action="" method="GET">
-            <div class="d-flex col-4 mb-3" style="gap: 10px">
+            <div class="d-flex col-md-4 mb-3" style="gap: 10px">
               <select class="form-control" name="classroom" id="">
                 <option value="" hidden selected>Pilih Kelas</option>
                 @forelse ($classrooms as $classroom)
@@ -31,8 +31,8 @@
                 @endforelse 
               </select>
               <div class="d-flex" style="gap: 5px">
-                <button class="btn btn-warning" type="submit">Filter</button>
-                <a href="{{ route('users.index') }}" class="btn btn-danger">Reset</a>
+                <button class="btn btn-sm btn-warning" type="submit">Filter</button>
+                <a href="{{ route('users.index') }}" class="btn btn-sm btn-danger">Reset</a>
               </div>
             </div>
           </form>
