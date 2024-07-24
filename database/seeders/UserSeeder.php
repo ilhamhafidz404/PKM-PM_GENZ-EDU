@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::insert([
             [
                 "name" => "Abiyah Naziyah Rahmani",
-                "nisn" => "0107484375",
+                "nisn" => "0107458475",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
@@ -30,14 +30,14 @@ class UserSeeder extends Seeder
             ],
             [
                 "name" => "Aldi Firansyah",
-                "nisn" => "0082154357",
+                "nisn" => "0082143577",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
             ],
             [
                 "name" => "Alya Eka Juwita",
-                "nisn" => "00999435469",
+                "nisn" => "0099943469",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
@@ -51,34 +51,34 @@ class UserSeeder extends Seeder
             ],
             [
                 "name" => "Dani Ginajar",
-                "nisn" => "0106323694",
+                "nisn" => "0081385375",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
             ],
             [
                 "name" => "Dean Nita",
-                "nisn" => "0081368375",
+                "nisn" => "0102598301",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
             ],
             [
                 "name" => "Jashtin Rizky Abdillah",
-                "nisn" => "0102539801",
+                "nisn" => "0097022810",
                 "profile" => "profile.jpg",
-                "password" => bcrypt("rahasia"),
+                "password" => bcrypt("030609"),
                 "classroom_id" => 1
             ],
             [
-                "name" => "Muhamad Syaldzan",
+                "name" => "Muhamad Syahdzan",
                 "nisn" => "0094266220",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
             ],
             [
-                "name" => "Muhammad Aidan Bayanka",
+                "name" => "Muhammad Aidan Bayanaka",
                 "nisn" => "0092175909",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
@@ -86,14 +86,14 @@ class UserSeeder extends Seeder
             ],
             [
                 "name" => "Nurdian Rodiana",
-                "nisn" => "0108431095",
+                "nisn" => "0108430195",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
             ],
             [
                 "name" => "Reyhan Arga Saputra",
-                "nisn" => "0099220903",
+                "nisn" => "0092920903",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
@@ -114,7 +114,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "name" => "Vidi Oktaviano",
-                "nisn" => "0097356000",
+                "nisn" => "0097535600",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 1
@@ -131,63 +131,63 @@ class UserSeeder extends Seeder
 
             [
                 "name" => "April Sukma Dewi",
-                "nisn" => "0098946149",
+                "nisn" => "0091610849",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
                 "name" => "Firdiansyah",
-                "nisn" => "0098164357",
+                "nisn" => "0086482557",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
                 "name" => "Aulia Dwi Puspita",
-                "nisn" => "0100263447",
+                "nisn" => "0092624347",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
                 "name" => "Dani Rama Dani",
-                "nisn" => "0107074002",
+                "nisn" => "0107074022",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
                 "name" => "Giska Aprilia",
-                "nisn" => "0103742384",
+                "nisn" => "0107323874",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
                 "name" => "Hapid Ramadan Saputra",
-                "nisn" => "0105248937",
+                "nisn" => "0103542393",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
-                "name" => "Hani Ismail",
-                "nisn" => "0090976397",
+                "name" => "Harun Ismail",
+                "nisn" => "0101036894",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
-                "name" => "Kiau Ragil Sawirin",
-                "nisn" => "0090985097",
+                "name" => "Kilau Ragil Sawitri",
+                "nisn" => "0092724938",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
                 "name" => "Muhammad Rizky Ilham",
-                "nisn" => "0107522478",
+                "nisn" => "117414728",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
@@ -201,21 +201,21 @@ class UserSeeder extends Seeder
             ],
             [
                 "name" => "Reza Fauzi",
-                "nisn" => "0097639401",
+                "nisn" => "0097693401",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
                 "name" => "Silvi Nuraini",
-                "nisn" => "0105249471",
+                "nisn" => "0105294471",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
             [
-                "name" => "Vilyandris Fatahillah Putra Drisani",
-                "nisn" => "0105236431",
+                "name" => "Villyandris Fatahillah Putra Drisani",
+                "nisn" => "0102523631",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
@@ -227,110 +227,124 @@ class UserSeeder extends Seeder
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 2
             ],
+            [
+                "name" => "Muhammad Fauzi",
+                "nisn" => "0099693097",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 2
+            ],
 
             // 
 
             [
-                "name" => "Rasiela Halimah Puri",
+                "name" => "Raselia Halimah Puri",
                 "nisn" => "0103657281",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
-                "name" => "Raditya Mallana",
-                "nisn" => "105663561",
+                "name" => "Raditya Maulana",
+                "nisn" => "0105665361",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
-                "name" => "Raditya Setiawan",
-                "nisn" => "0111844587",
+                "name" => "Radit Setiawan",
+                "nisn" => "105563258",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
                 "name" => "Muhammad Rizky Ilham",
-                "nisn" => "0111844728",
+                "nisn" => "0117414728",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
-                "name" => "Najil Aziz Setiadi",
-                "nisn" => "010763528",
+                "name" => "Naufal Aziz Setiadi",
+                "nisn" => "0111854857",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
                 "name" => "Muhammad Fabi Al-Ghifari Mahesa",
-                "nisn" => "0118983580",
+                "nisn" => "0108273800",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
-                "name" => "Mytra Firdasari Gista",
-                "nisn" => "0108515494",
+                "name" => "Miyalita Fitri Lestari",
+                "nisn" => "0112556251",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
                 "name" => "Muhammad Diyen R",
-                "nisn" => "01108515494",
+                "nisn" => "0109815494",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
-                "name" => "Mochamad Farel Pratama",
-                "nisn" => "0090926938",
+                "name" => "Mochamad Farell Pratama",
+                "nisn" => "0107643802",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
-                "name" => "Malika Ayudya Azzahra",
-                "nisn" => "01025049582",
+                "name" => "Malika Ayundya Azzahra",
+                "nisn" => "0102649582",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
-                "name" => "Kenze Nuri Mahmadia",
-                "nisn" => "0107320746",
+                "name" => "Kenzie Nuri Mahmadia",
+                "nisn" => "0099330764",
+                "profile" => "profile.jpg",
+                "password" => bcrypt("rahasia"),
+                "classroom_id" => 3
+            ],
+            [
+                "name" => "Feli Kirana",
+                "nisn" => "0114243803",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
                 "name" => "Dila Ayunda Romadani",
-                "nisn" => "0112985506",
+                "nisn" => "0101229550",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
                 "name" => "Bagas Arya Pratama",
-                "nisn" => "0119903676",
+                "nisn" => "0119930376",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
                 "name" => "Anzar Permana Putra",
-                "nisn" => "0114923854",
+                "nisn" => "23247002",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3
             ],
             [
                 "name" => "Afidin",
-                "nisn" => "0104635336",
+                "nisn" => "0104365336",
                 "profile" => "profile.jpg",
                 "password" => bcrypt("rahasia"),
                 "classroom_id" => 3

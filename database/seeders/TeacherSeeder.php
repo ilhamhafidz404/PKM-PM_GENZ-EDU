@@ -56,6 +56,12 @@ class TeacherSeeder extends Seeder
                 "email" => "etikrohmatikaa27@gmail.com",
                 "password" => bcrypt("Abdithea@")
             ],
+            [
+                "name" => "Afif Syarifudin",
+                "username" => "afifsyarifudin27",
+                "email" => "afifsyarifudin27@gmail.com",
+                "password" => bcrypt("Kuningan123")
+            ],
         ]);
     }
 }

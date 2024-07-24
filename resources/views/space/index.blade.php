@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-footer bg-whitesmoke d-flex justify-content-between align-items-center">
                   <div>
-                    <p class="m-0">{{$space->user->name}} &bullet; {{$space->created_at->diffForHumans()}}</p>
+                    <p class="m-0">{{$space->user->name}} ({{$space->user->classroom->name}}) &bullet; {{$space->created_at->diffForHumans()}}</p>
                   </div>
                   <div class="d-flex align-items-center">
                     @if (auth()->guard("teacher")->user())
