@@ -50,6 +50,7 @@
                     <th>Nama Siswa</th>
                     <th>Kelas</th>
                     <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                   @forelse ($absents as $absent)
                     <tr>
@@ -77,6 +78,16 @@
                         @else
                           <span class="badge badge-secondary">Izin</span>
                         @endif
+                      </td>
+                      <td>
+                        <form action="{{ route("absent.destroy", $absent->id) }}" method="POST">
+                          @csrf
+                          @method("DELETE")
+                          <button 
+                            class="btn btn-danger" 
+                            onclick="return confirm('Tolah Absen dilakukan bila foto tidak sesuai, apakah anda yakin?')"
+                          >Tolak Absen</button>
+                        </form>
                       </td>
                     </tr>
                   @empty

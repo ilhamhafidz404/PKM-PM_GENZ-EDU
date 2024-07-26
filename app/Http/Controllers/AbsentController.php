@@ -67,6 +67,14 @@ class AbsentController extends Controller
         return redirect()->back();
     }
 
+    public function destroy($id){
+
+        Absent::find($id)->delete();
+
+        toast('Menghapus Data Absen Berhasil','success');
+        return redirect()->route("absent.index");
+    }
+
     public function export() 
     {
         return Excel::download(new AbsentExport, 'absents.xlsx');
