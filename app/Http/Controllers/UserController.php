@@ -18,12 +18,15 @@ class UserController extends Controller
         } else{
             $users = User::where("classroom_id", $_GET["classroom"])->orderBy("name", "ASC")->get();
         }
+
+        $parents = Parents::with("user")->get();
         
         $classrooms = Classroom::orderBy('name', "DESC")->get();
 
         return view('user.index', [
             "users" => $users,
             "classrooms" => $classrooms,
+            "parents"=> $parents
         ]);
     }
 

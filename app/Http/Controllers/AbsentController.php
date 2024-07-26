@@ -8,7 +8,6 @@ use App\Models\Classroom;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AbsentController extends Controller
@@ -27,7 +26,7 @@ class AbsentController extends Controller
         $absents = $absentsQuery->latest()->get();
 
         $now = Carbon::now('Asia/Jakarta');
-        $eightAM = Carbon::today('Asia/Jakarta')->setTime(20, 0, 0);
+        $eightAM = Carbon::today('Asia/Jakarta')->setTime(23, 0, 0);
 
         $user = auth()->guard("teacher")->user() ? null : 
                 (auth()->guard("parent")->user() 
@@ -45,18 +44,25 @@ class AbsentController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, [
-            'photo' => 'required',
-        ]);
-
-        $file = $request->file('photo');
-        $path = $file->store('absents', 'public');
-
-        Absent::create([
-            "user_id" => Auth::user()->id,
-            "photo" => $path,
-            "status" => $request->submit,
-        ]);
+        // Check apakah user sudah submit absen atau belum
+        $todayAbsents = Absent::whereUserId(Auth::user()->id)
+            ->whereDate('created_at', Carbon::today())
+            ->count();
+        
+        if(!$todayAbsents){ 
+            $this->validate($request, [
+                'photo' => 'required',
+            ]);
+    
+            $file = $request->file('photo');
+            $path = $file->store('absents', 'public');
+    
+            Absent::create([
+                "user_id" => Auth::user()->id,
+                "photo" => $path,
+                "status" => $request->submit,
+            ]);
+        }
 
         return redirect()->back();
     }
