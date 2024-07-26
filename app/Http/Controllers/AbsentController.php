@@ -62,9 +62,12 @@ class AbsentController extends Controller
                 "photo" => $path,
                 "status" => $request->submit,
             ]);
-        }
 
-        return redirect()->back();
+        }
+        toast('Absen Berhasil, kamu ' . $request->submit . ' hari ini!', 'success');
+
+        // sleep(5);
+        return redirect()->route("absent.index");
     }
 
     public function destroy($id){
