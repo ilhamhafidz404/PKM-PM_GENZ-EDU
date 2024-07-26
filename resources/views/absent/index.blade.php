@@ -32,8 +32,12 @@
                       </select>
                       <input type="date" class="form-control mb-md-0 mb-2" name="filterDate" value="{{ $_GET['filterDate'] ?? '' }}">
                       <div class="d-flex" style="gap: 5px">
-                        <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
-                        <button class="btn btn-warning">Filter</button> 
+                        <div>
+                          <a href="{{ route('absent.index') }}" class="btn btn-danger">Reset</a>
+                        </div>
+                        <div>
+                          <button class="btn btn-warning">Filter</button> 
+                        </div>
                       </div>
                     </div>
                   </form>                  

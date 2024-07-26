@@ -30,9 +30,13 @@
                   <option value="">Tidak ada kelas</option>
                 @endforelse 
               </select>
-              <div class="d-flex" style="gap: 5px">
-                <button class="btn btn-sm btn-warning" type="submit">Filter</button>
-                <a href="{{ route('users.index') }}" class="btn btn-sm btn-danger">Reset</a>
+              <div class="d-flex align-items-center" style="gap: 5px">
+                <div>
+                  <button class="btn btn-warning" type="submit">Filter</button>
+                </div>
+                <div>
+                  <a href="{{ route('users.index') }}" class="btn btn-sm btn-danger">Reset</a>
+                </div>
               </div>
             </div>
           </form>

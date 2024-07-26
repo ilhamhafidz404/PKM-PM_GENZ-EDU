@@ -21,7 +21,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="nisn">NISN</label>
                         <input 
@@ -38,7 +38,7 @@
                         @enderror
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="student">Nama Siswa</label>
                         <input 
@@ -55,7 +55,7 @@
                         @enderror
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="classroom">Kelas</label>
                         <select name="classroom" id="classroom" class="form-control">
@@ -67,23 +67,6 @@
                           @endforelse
                         </select>
                         @error('classroom')
-                          <div class="invalid-feedback">
-                            {{$message}}
-                          </div>
-                        @enderror
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="profile">Foto</label>
-                        <input 
-                          type="file" 
-                          class="form-control @error('profile') is-invalid @enderror" 
-                          name="profile" 
-                          id="profile" 
-                          value="{{old('profile')}}"
-                        >
-                        @error('profile')
                           <div class="invalid-feedback">
                             {{$message}}
                           </div>

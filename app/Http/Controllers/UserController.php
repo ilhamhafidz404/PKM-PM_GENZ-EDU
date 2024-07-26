@@ -44,7 +44,6 @@ class UserController extends Controller
             'student' => 'required',
             'nisn' => 'required',
             'password' => 'required',
-            'profile' => 'required',
             'parent' => 'required',
             'classroom' => 'required',
         ]);
