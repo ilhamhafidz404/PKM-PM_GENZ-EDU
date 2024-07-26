@@ -40,13 +40,15 @@
                     >
                       @csrf
                       @method("DELETE")
-                      <button type="submit" class="btn btn-danger">
+                      <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah yakin ingin dihapus?')">
                         <i class="fas fa-ban"></i>
+                        Hapus
                       </button>
                     </form>
                     @endif
                     <a href="{{asset('storage/'.$space->file)}}" class="btn btn-warning" target="_blank">
                       <i class="fas fa-download"></i>
+                      Lihat / Download File
                     </a>
                   </div>
                 </div>
