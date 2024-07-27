@@ -101,83 +101,11 @@
                   @endforelse
                 </table>
               </div>
-            @elseif (auth()->guard("parent")->user())
-              @if ($checkTodayAbsent)
-                <div class="card p-3">
-                  <h5>Anak kamu sudah absen</h5>
-                </div>
-              @else
-                @if ($now->greaterThan($eightAM))
-                  <div class="card p-3">
-                    <h5>Anak kamu belum absen dan telat</h5>
-                  </div>
-                @else
-                    <div class="card p-3">
-                      <h5>Anak kamu belum absen</h5>
-                    </div>
-                @endif
-              @endif
             @else
               @if ($checkTodayAbsent)
-              <div class="card p-3">
-                <ul class="ml-0 pl-4">
-                  <li>Silahkan mengisi kehadiran hari ini!</li>
-                  <li>Kehadiran diisi sebelum pukul 8 pagi</li>
-                  <li>
-                    Silahkan upload foto mu di lingkungan sekolah di bawah ini (jika absensi hadir)! 
-                    <a href="{{ asset("imgExample/hadir.jpg") }}" target="_blank" class="text-warning">lihat contoh foto</a>
-                  </li>
-                  <li>
-                    Silahkan upload foto keterangan dokter! (jika absensi sakit)
-                    <a href="{{ asset("imgExample/sakit.webp") }}" target="_blank"  class="text-warning">lihat contoh foto</a>
-                  </li>
-                  <li>
-                    Silahkan upload foto kegitan! (jika absensi izin)
-                  </li>
-                </ul>
-                <form action="" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <input 
-                    class="form-control @error('photo') is-invalid @enderror" 
-                    type="file" 
-                    accept="image/*, video/*" 
-                    capture="user" 
-                    name="photo"
-                  />
-                  @error('photo')
-                    <div class="invalid-feedback">
-                      {{$message}}
-                    </div>
-                  @enderror
-                  <br>
-                  <button 
-                    name="submit" 
-                    value="hadir" 
-                    class="btn btn-warning btn-block" 
-                    onclick="return confirm('Apakah kmu yakin submit Hadir?')"
-                  >
-                    Hadir
-                  </button>
-                  <hr>
-                  <button 
-                    name="submit" 
-                    value="izin" 
-                    class="btn btn-secondary btn-block"
-                    onclick="return confirm('Apakah kmu yakin submit Izin?')"
-                  >
-                    Izin
-                  </button>
-                  <hr>
-                  <button 
-                    name="submit" 
-                    value="sakit" 
-                    class="btn btn-danger btn-block"
-                    onclick="return confirm('Apakah kmu yakin submit Sakit?')"
-                  >
-                    Sakit
-                  </button>
-                </form>
-              </div>
+                <div class="card p-3">
+                  <h5>Yeay, kamu sudah presensi di hari ini</h5>
+                </div>
               @else
                 @if ($now->greaterThan($eightAM))
                   <div class="card">

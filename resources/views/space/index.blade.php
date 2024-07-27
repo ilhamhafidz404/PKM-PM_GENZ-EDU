@@ -24,13 +24,19 @@
                   <h4>{{$space->title}}</h4>
                 </div>
                 <div class="card-body">
+                  <img 
+                    src="{{ asset('storage/spaces/'.$space->file) }}" 
+                    alt="File foto tidak ada" 
+                    class="img-thumbnail" 
+                    style="width: 100%; height: 200px; object-fit: cover"
+                  >
                   <p>{{$space->description}}</p>
                 </div>
-                <div class="card-footer bg-whitesmoke d-flex justify-content-between align-items-center">
+                <div class="card-footer bg-whitesmoke d-flex align-items-center justify-content-between">
                   <div>
                     <p class="m-0">{{$space->user->name}} ({{$space->user->classroom->name}}) &bullet; {{$space->created_at->diffForHumans()}}</p>
                   </div>
-                  <div class="d-flex align-items-center">
+                  <div class="d-flex align-items-center mt-2">
                     @if (auth()->guard("teacher")->user())
                     <form 
                       action="{{ route('spaces.destroy', $space->id) }}" 
@@ -75,7 +81,7 @@
               </div>
             @endforelse
           </div>
-          {{ $spaces->links('vendor.pagination.bootstrap-5') }}
+          {{-- {{ $spaces->links('vendor.pagination.bootstrap-5') }} --}}
         </section>
       </div>
       @include("components.footer")
