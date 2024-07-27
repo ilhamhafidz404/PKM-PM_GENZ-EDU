@@ -30,9 +30,12 @@
                     class="img-thumbnail" 
                     style="width: 100%; height: 200px; object-fit: cover"
                   >
-                  <p>{{$space->description}}</p>
+                  <p class="mt-3">
+                    <b>Deskripsi: </b>
+                    {{$space->description}}
+                  </p>
                 </div>
-                <div class="card-footer bg-whitesmoke d-flex align-items-center justify-content-between">
+                <div class="card-footer bg-whitesmoke d-md-flex align-items-center justify-content-between">
                   <div>
                     <p class="m-0">{{$space->user->name}} ({{$space->user->classroom->name}}) &bullet; {{$space->created_at->diffForHumans()}}</p>
                   </div>
