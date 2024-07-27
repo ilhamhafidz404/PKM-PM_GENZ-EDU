@@ -60,7 +60,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-warning">Upload Ekspresi</button>
+                    <button class="btn btn-warning" onclick="return confirm('Yakin ingin mengupload?')">Upload Ekspresi</button>
                   </div>
                 </div>
               </div>

@@ -35,24 +35,30 @@ class SpaceController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
-            'file' => 'required',
-        ]);
+        $spaceExist = Space::whereTitle($request->title)->whereDescription($request->description)->count();
 
-        $file = $request->file('file');
-        $path = $file->store('spaces', 'public');
+        if(!$spaceExist){
+            $this->validate($request, [
+                'title' => 'required',
+                'description' => 'required',
+                'file' => 'required',
+            ]);
+    
+            $file = $request->file('file');
+            $path = $file->store('spaces', 'public');
+    
+            Space::create([
+                "title" => $request->title,
+                "slug" => Str::slug($request->title),
+                "description" => $request->description,
+                "file" => $path,
+                "user_id" => Auth::user()->id,
+            ]);
 
-        Space::create([
-            "title" => $request->title,
-            "slug" => Str::slug($request->title),
-            "description" => $request->description,
-            "file" => $path,
-            "user_id" => Auth::user()->id,
-        ]);
+            toast('Berhasil meng-upload!','success');
+        } 
+        return redirect()->route("spaces.index");
 
-        return redirect()->route('spaces.index');
     }
 
     /**
